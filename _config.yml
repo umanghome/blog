@@ -3,18 +3,18 @@
 # Site wide configuration
 ####################################
 #
-title: Leonids
-email: zourenyuan@gmail.com
-description: A simple and awesome blog theme powered by jekyll.
-url: https://renyuanz.github.io/leonids # the base hostname & protocol for your site
-keywords: ["Programming", "PHP", "Ruby"]
+title: DevTales | Umang Galaiya
+email: umang@umanggalaiya.in
+description: Tales from my everyday life as a Software Engineer
+url: https://devtales.umanggalaiya.in # the base hostname & protocol for your site
+keywords: ["Programming", "Software Engineer", "Software Engineering", "Technology", "Umang", "Galaiya", "Tech"]
 
 #
 ###################################
 # Jekyll configuration
 ####################################
 #
-timezone:          Europe/Paris
+timezone:          Asia/Kolkata
 markdown:          kramdown
 highlighter:       rouge
 excerpt_separator: <!--more-->
@@ -33,14 +33,14 @@ kramdown:
 ####################################
 #
 owner:
-  name: Leonids
-  avatar: leonids-logo.png
-  job: "PHP & Ruby Developer"
-  bio: "A backend developer who loves design awesome things. Working for RendezvousCheznous atm in Marseille, France."
-  email: zourenyuan@gmail.com
-  disqus-shortname: renyuanzblog
-  twitter: renyuan814 #username
-  facebook: #username
+  name: Umang Galaiya
+  avatar: 
+  job: "Full-Stack Web Developer"
+  bio: "A full-stack web dev, expirementing with tech and software engineering."
+  email: umang@umanggalaiya.in
+  disqus-shortname: umanghome
+  twitter: umanghome #username
+  facebook: umanghome #username
   google:
     plus: #username
     analytics: UA-62251910-2
@@ -48,11 +48,11 @@ owner:
     ad-client:
     ad-slot:
   bing-verify:
-  github: renyuanz #username
-  stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
-  linkedin: renyuan-zou-69b7038a #username
+  github: umanghome #username
+  stackoverflow: 4176188/umang-galaiya #123456/username   from a "http://stackoverflow.com/users/123456/username" link
+  linkedin: umanggalaiya #username
   xing: #username
-  instagram: #username
+  instagram: umanghome #username
   lastfm: #username
   tumblr: #username
   pinterest: #username
