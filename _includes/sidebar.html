@@ -11,16 +11,17 @@
     <ul class="nav-list">
       <li class="nav-item">
         <a href="{{ site.url }}/">home</a>
-        <span>/</span>
       </li>
       {% for page in site.pages %} {% if page.title %}
       <li class="nav-item">
+        <span>/</span>
         <a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a>
-        {% unless forloop.last %}
-          <span>/</span>
-        {% endunless %}
       </li>
       {% endif %} {% endfor %}
+      <li class="nav-item">
+        <span>/</span>
+        <a href="https://umanggalaiya.in/">portfolio</a>
+      </li>
     </ul>
   </nav>
   {% include social-links.html %}

@@ -3,11 +3,11 @@
 # Site wide configuration
 ####################################
 #
-title: DevTales | Umang Galaiya
+title: Dev Tales | Umang Galaiya
 email: umang@umanggalaiya.in
-description: Tales from my everyday life as a Software Engineer
-url: https://devtales.umanggalaiya.in # the base hostname & protocol for your site
-keywords: ["Programming", "Software Engineer", "Software Engineering", "Technology", "Umang", "Galaiya", "Tech"]
+description: Musings from my everyday life as a Software Engineer
+url: https://umanggalaiya.in/dev # the base hostname & protocol for your site
+keywords: ["Programming", "Software Engineer", "Software Engineering", "Software", "Engineering", "Engineer", "Code", "Technology", "Umang", "Galaiya", "Tech", "Technology"]
 
 #
 ###################################
@@ -18,7 +18,7 @@ timezone:          Asia/Kolkata
 markdown:          kramdown
 highlighter:       rouge
 excerpt_separator: <!--more-->
-permalink:         /articles/:year-:month/:title
+permalink:         /:year/:title
 
 kramdown:
   auto_ids: true
@@ -34,16 +34,16 @@ kramdown:
 #
 owner:
   name: Umang Galaiya
-  avatar: 
-  job: "Full-Stack Web Developer"
+  avatar: umang.png
+  job: "Software Engineer"
   bio: "A full-stack web dev, expirementing with tech and software engineering."
   email: umang@umanggalaiya.in
-  disqus-shortname: umanghome
+  disqus-shortname: umanggalaiyablog
   twitter: umanghome #username
   facebook: umanghome #username
   google:
-    plus: #username
-    analytics: UA-62251910-2
+    plus:
+    analytics: UA-58535571-2
     verify:
     ad-client:
     ad-slot:
