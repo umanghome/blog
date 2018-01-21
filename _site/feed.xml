@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog | Umang Galaiya</title>
+    <description>Musings from my everyday life as a Software Engineer</description>
+    <link>https://umanggalaiya.in/blog/</link>
+    <atom:link href="https://umanggalaiya.in/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 21 Jan 2018 15:00:45 +0530</pubDate>
+    <lastBuildDate>Sun, 21 Jan 2018 15:00:45 +0530</lastBuildDate>
+    <generator>Jekyll v3.7.0</generator>
+    
+      <item>
+        <title>Building LeapDrop</title>
+        <description>&lt;p&gt;Hi, there. I’ve been meaning to write a post about how we built LeapDrop at the
+&lt;a href=&quot;https://hackinout.co/&quot;&gt;InOut&lt;/a&gt; 3.0 Hackathon. We eventually won Best Hardware
+Hack sponsored by &lt;a href=&quot;https://www.hackster.io/&quot;&gt;Hackster.io&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Team TheGeekBros has three bros in it: &lt;a href=&quot;http://siddharth.xyz/&quot;&gt;Siddharth
+Goswami&lt;/a&gt;, &lt;a href=&quot;https://sohamdodia.in/&quot;&gt;Soham Dodia&lt;/a&gt;, and
+&lt;a href=&quot;https://umanggalaiya.in/&quot;&gt;I&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;InOut had lots of tracks this time around, so we got to dabble around various
+ideas — eventually settling onto building something in the
+Virtual-Reality/Augmented-Reality track — something that’s been an interest of
+ours for a really long time.&lt;/p&gt;
+
+&lt;p&gt;We had a couple of ideas: a zombie-shooter FPS based on AR, a VR desktop
+experience (sort of like &lt;a href=&quot;https://cindori.org/vrdesktop/&quot;&gt;this&lt;/a&gt;). We had a
+&lt;a href=&quot;https://www.leapmotion.com/&quot;&gt;LeapMotion&lt;/a&gt;, a borrowed &lt;a href=&quot;https://vr.google.com/cardboard/&quot;&gt;Google
+Cardboard&lt;/a&gt; knock-off, and some two-way tape to
+piece it all together.&lt;/p&gt;
+
+&lt;p&gt;Now, none of us really knew how to proceed with any of the ideas. We didn’t have
+experience writing code to build VR/AR experiences — just some ideas in our
+heads — results of all those hours of sci-fi entertainment. So we sat there for
+two hours, cracking jokes and Googling stuff. It became evident after
+inefficiently sharing links back-and-forth for a while that it would be
+practically impossible for us to work on any of our ideas so far. Then it hit
+us.&lt;/p&gt;
+
+&lt;p&gt;We’d been sharing links really inefficiently. I don’t remember how, but maybe it
+was a Messenger group? We recalled this scene from the first Iron Man movie
+where Tony Stark movies stuff across computers (and onto a hologram) using just
+his hands:&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/WNu6fRo_7fg?start=4&quot; frameborder=&quot;0&quot; gesture=&quot;media&quot; allow=&quot;encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;em&gt;Watch 0:05 to 0:20&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Why couldn’t we do this for sharing web pages? We had a LeapMotion that could
+very well detect hand gestures to do something like this. And thus, we set off
+to build LeapDrop.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;LeapDrop allows people to share webpages between computers by using a simple
+pinch-and-release hand gesture.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The “stack” consisted of the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A Chrome Extension for interacting with the browser.&lt;/li&gt;
+  &lt;li&gt;A Node.js server with socket.io [Web Sockets] for inter-device communication.&lt;/li&gt;
+  &lt;li&gt;A LeapMotion and its JS SDK.&lt;/li&gt;
+  &lt;li&gt;An Android app.&lt;/li&gt;
+  &lt;li&gt;Lots of jokes and quite a bit of &lt;a href=&quot;https://9gag.com/&quot;&gt;9GAG&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The end result looked something like this.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/ptT3npbsaRg&quot; frameborder=&quot;0&quot; gesture=&quot;media&quot; allow=&quot;encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;At the beginning when we were discussing this idea and ironing out the details
+of how it’s supposed to work, it seemed that this would be a fairly simple
+project and could be done in a couple of hours — maybe even in half the time of
+the entire duration of the Hackathon. There’s a(n unspoken?) rule of Software
+Engineering that almost nothing will ever be built in the time a developer
+claims it to be. But we did manage to catch some sleep and tweak LeapDrop to
+work better, so.. ¯_(ツ)_/¯&lt;/p&gt;
+
+&lt;p&gt;It was one hell of an experience — nerd jokes, memes, working with the coolest
+team, and working on things which have no proper set path or guides to develop
+(those are the best kind). I wouldn’t trade it for anything else. Anyway, here’s
+a checkpoint. The stuff that follows now is mostly about how LeapDrop works, so
+if you’re not interested in the nitty-gritty, drop a like by clicking a heart
+button somewhere on this page if you liked this post so far, and have a great
+day/night/whatever. 😄&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;We didn’t have a set path or a guide on how to build LeapDrop. We knew how
+things are supposed to work in tandem, but had no experience building anything
+like this — ever.&lt;/p&gt;
+
+&lt;p&gt;I had built a tiny (totally unrelated) Chrome Extension earlier, and had written
+some socket.io code. Siddharth and Soham had experience building Android apps.
+Siddharth and I had been playing with LeapMotion the previous summer. So we got
+to working. In an ideal world, I would be building the Chrome Extension, but
+Siddharth had already started working on it by the time Soham and I started
+reading the documentation. Soham picked up Android and I got to writing
+JavaScript for the server.&lt;/p&gt;
+
+&lt;p&gt;Here’s a breakdown of what each part of the stack was doing:&lt;/p&gt;
+
+&lt;h3 id=&quot;google-cardboard--leapmotion&quot;&gt;Google Cardboard + LeapMotion&lt;/h3&gt;
+
+&lt;p&gt;We stuck a LeapMotion onto a Google Cardboard. The LeapMotion would detect hand
+gestures. A phone running the Android app went into the Google Cardboard.&lt;/p&gt;
+
+&lt;h3 id=&quot;nodejs-server-with-socketio&quot;&gt;&lt;strong&gt;Node.js Server with socket.io&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;The server is the “controller” of sorts. Each device would be connected to it
+using Web Socket. The server emits and listens to events. It tells the Chrome
+Extension to show QR Codes, read URLs, and open URLs. It tells the Android App
+to decode the QR Code in front of it. It listens to gestures from the
+LeapMotion.&lt;/p&gt;
+
+&lt;h3 id=&quot;chrome-extension&quot;&gt;Chrome Extension&lt;/h3&gt;
+
+&lt;p&gt;The Chrome Extension is installed on all the participating computers. It
+connects to the socket.io server. It listens for events and emits them. It shows
+a QR Code when asked, it sends the URL of the last active tab when asked, and it
+opens up a URL when asked.&lt;/p&gt;
+
+&lt;h3 id=&quot;android-app&quot;&gt;Android App&lt;/h3&gt;
+
+&lt;p&gt;The Android app connects to the socket.io server as well. (It’s a pattern,
+really. Everything connects to the socket.io server.) The Android app displays
+what the camera sees, and occasionally decodes QR Codes. It was supposed to be a
+stereoscopic view, but Android only allows one resource to access the camera at
+a given time, so we ended up with having the camera-view only in the right part
+of the stereoscopic view. It was (very) lousy UX, but that’s all that we could
+come up with at the time. The Android phone goes into the Google Cardboard.&lt;/p&gt;
+
+&lt;h3 id=&quot;leapmotion-and-its-js-sdk&quot;&gt;LeapMotion and its JS SDK&lt;/h3&gt;
+
+&lt;p&gt;If you haven’t figured out by now, the LeapMotion also connects to the socket.io
+server. However, since LeapMotion cannot directly connect to anything except the
+SDK, the JS SDK is running on a webpage and the webpage is connected to the
+socket.io server using Web Sockets. This webpage listens for the &lt;em&gt;pinch&lt;/em&gt; and
+&lt;em&gt;release&lt;/em&gt; gestures and notifies the server when they are performed.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;connecting-it-all&quot;&gt;Connecting it all&lt;/h3&gt;
+
+&lt;p&gt;Abbreviations of devices:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;C1 — Computer 1 with a Chrome Extension&lt;/li&gt;
+  &lt;li&gt;C2 — Computer 2 with a Chrome Extension&lt;/li&gt;
+  &lt;li&gt;PH — Android Phone running the LeapDrop app&lt;/li&gt;
+  &lt;li&gt;LMC — LeapMotion-connected Computer&lt;/li&gt;
+  &lt;li&gt;LM — LeapMotion&lt;/li&gt;
+  &lt;li&gt;Server — A Node.js + socket.io server.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://umanggalaiya.in/blog/img/LeapDrop.png&quot; alt=&quot;&amp;quot;How LeapDrop works&amp;quot;&quot; title=&quot;How LeapDrop works&quot; /&gt;
+&lt;em&gt;Siddharth is a really great designer as well. He’s the one who created this
+sweet illustration.&lt;/em&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;em&gt;C1&lt;/em&gt; registers with the &lt;em&gt;Server&lt;/em&gt;. An ID is assigned to &lt;em&gt;C1&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;C2&lt;/em&gt; registers with the &lt;em&gt;Server&lt;/em&gt;. An ID is assigned to &lt;em&gt;C2&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;PH&lt;/em&gt; registers with the &lt;em&gt;Server&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;LMC&lt;/em&gt; registers with the &lt;em&gt;Server&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;LM&lt;/em&gt; detects a pinch gesture.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;LM&lt;/em&gt; notifies &lt;em&gt;LMC&lt;/em&gt; about the detected pinch gesture.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;LMC&lt;/em&gt; notifies the &lt;em&gt;Server&lt;/em&gt; about the detected pinch gesture.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Server&lt;/em&gt; asks &lt;em&gt;C1&lt;/em&gt; to show its QR Code. This QR Code has encoded within itself
+the ID assigned to it in Step 1.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Server&lt;/em&gt; asks &lt;em&gt;C2&lt;/em&gt; to show its QR Code. This QR Code has encoded within itself
+the ID assigned to it in Step 2.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Server&lt;/em&gt; asks &lt;em&gt;PH&lt;/em&gt; to detect the QR Code it sees, and send whatever the QR Code
+has encoded within itself. [This works because when the user makes a pinch
+gesture in front of a computer, the head-mounted mobile-phone camera will see
+the QR Code of the source computer.]&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;PH&lt;/em&gt; sends the decoded ID of the source computer to the Server. [&lt;em&gt;C1&lt;/em&gt; in this
+case.]&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Server&lt;/em&gt; asks the computer to which the ID belongs [&lt;em&gt;C1&lt;/em&gt; in this case] to send
+it’s last visited URL.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;C1&lt;/em&gt; sends the last visited URL to the &lt;em&gt;Server&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;LM&lt;/em&gt; detects a release gesture.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;LM&lt;/em&gt; notifies &lt;em&gt;LMC&lt;/em&gt; about the detected release gesture.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;LMC&lt;/em&gt; notifies the &lt;em&gt;Server&lt;/em&gt; about the detected release gesture.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Server&lt;/em&gt; asks &lt;em&gt;PH&lt;/em&gt; to detect the QR Code it sees, and send whatever the QR code
+has encoded within itself. [This works because when the user makes a release
+gesture in front of a computer, the head-mounted mobile-phone camera will the
+the QR Code of the target computer.]&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;PH&lt;/em&gt; sends the decoded ID of the target computer to the &lt;em&gt;Server&lt;/em&gt;. [&lt;em&gt;C2&lt;/em&gt; in this
+case.]&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Server&lt;/em&gt; asks &lt;em&gt;C1&lt;/em&gt; to stop showing its QR Code.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Server&lt;/em&gt; asks &lt;em&gt;C2&lt;/em&gt; to stop showing its QR Code.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Server&lt;/em&gt; asks the target computer [&lt;em&gt;C2&lt;/em&gt; in this case] to open the URL obtained
+in Step 13.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;We got a &lt;em&gt;bit&lt;/em&gt; of attention from the judges and fellow hackers around us, but
+unfortunately didn’t get selected to demo on-stage. This was a real bummer,
+since I can’t help but think to this date, how &lt;strong&gt;rad&lt;/strong&gt; it would have been to
+grab a webpage from the projector-screen and put it on a laptop on a totally
+different side of the room.&lt;/p&gt;
+
+&lt;p&gt;Anyway, when the prizes were being announced for the Hardware category, I
+thought maybe we were deserving of the third prize. The third prize was
+announced and it wasn’t us. I thought maybe we were second since LeapDrop was
+really cool. The second prize wasn’t us either. I gave up on winning a Hackathon
+prize this time around. (&lt;em&gt;Paging&lt;/em&gt; Imposter Syndrome!) TheGeekBros flashed on the
+screen as the first prize, and we took a jolly ride to Cloud 9. I had been to
+the first two versions of InOut as well, but like they say: &lt;em&gt;Third time’s the
+charm&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Anyway, that’s it for this &lt;em&gt;reeeeally&lt;/em&gt; long post. If you’re still reading,
+thanks for sticking around for this long. 😄&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/TheGeekBros/leapdrop&quot;&gt;GitHub repo for LeapDrop.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Originally posted to &lt;a href=&quot;https://hackernoon.com/building-leapdrop-f4191ff2f36d&quot;&gt;Medium&lt;/a&gt; on June 29, 2017.&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 07 Dec 2017 17:52:19 +0530</pubDate>
+        <link>https://umanggalaiya.in/blog/2017/building-leapdrop.html</link>
+        <guid isPermaLink="true">https://umanggalaiya.in/blog/2017/building-leapdrop.html</guid>
+        
+        
+        <category>technology</category>
+        
+        <category>hackathons</category>
+        
+      </item>
+    
+      <item>
+        <title>Hello, world!</title>
+        <description>&lt;p&gt;Hello, world! 👋🏼&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;I finally got around to making a blog in Jekyll after procrastinating for weeks. Let’s just hope I can now gather the motivation to write all the posts I have lined up on my to-do list.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 07 Dec 2017 16:52:19 +0530</pubDate>
+        <link>https://umanggalaiya.in/blog/2017/hello-world.html</link>
+        <guid isPermaLink="true">https://umanggalaiya.in/blog/2017/hello-world.html</guid>
+        
+        
+        <category>random</category>
+        
+      </item>
+    
+  </channel>
+</rss>
