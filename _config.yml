@@ -3,11 +3,11 @@
 # Site wide configuration
 ####################################
 #
-title: Dev Tales | Umang Galaiya
+title: Blog | Umang Galaiya
 email: umang@umanggalaiya.in
 description: Musings from my everyday life as a Software Engineer
-url: https://umanggalaiya.in/dev # the base hostname & protocol for your site
-keywords: ["Programming", "Software Engineer", "Software Engineering", "Software", "Engineering", "Engineer", "Code", "Technology", "Umang", "Galaiya", "Tech", "Technology"]
+url: https://umanggalaiya.in/blog # the base hostname & protocol for your site
+keywords: ["Programming", "Software Engineer", "Software Engineering", "Software", "Engineering", "Engineer", "Code", "Technology", "Umang", "Galaiya", "Tech", "Technology", "Blog"]
 
 #
 ###################################
