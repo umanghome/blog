@@ -8,31 +8,31 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Hello, world! 👋🏼">
+  <meta name="description" content="Viewing large diffs on GitHub is a bit of a pain in the ass. I made a Chrome extension to make it slightly better.">
   <meta name="keywords" content="Programming, Software Engineer, Software Engineering, Software, Engineering, Engineer, Code, Technology, Umang, Galaiya, Tech, Technology, and Blog">
-  <meta name="author" content="Hello, world! | Blog | Umang Galaiya">
+  <meta name="author" content="Making viewing diffs on GitHub a bit better | Blog | Umang Galaiya">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f5f5f5">
 
   <!-- Twitter Tags -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Hello, world! | Blog | Umang Galaiya">
-  <meta name="twitter:description" content="Hello, world! 👋🏼">
+  <meta name="twitter:title" content="Making viewing diffs on GitHub a bit better | Blog | Umang Galaiya">
+  <meta name="twitter:description" content="Viewing large diffs on GitHub is a bit of a pain in the ass. I made a Chrome extension to make it slightly better.">
   <meta name="twitter:image" content="https://umanggalaiya.in/blog/img/umang.jpg">
 
   <!-- Open Graph Tags -->
   <meta property="og:type" content="blog">
   <meta property="og:url" content="https://umanggalaiya.in/blog">
-  <meta property="og:title" content="Hello, world! | Blog | Umang Galaiya">
-  <meta property="og:description" content="Hello, world! 👋🏼">
+  <meta property="og:title" content="Making viewing diffs on GitHub a bit better | Blog | Umang Galaiya">
+  <meta property="og:description" content="Viewing large diffs on GitHub is a bit of a pain in the ass. I made a Chrome extension to make it slightly better.">
   <meta property="og:image" content="https://umanggalaiya.in/blog/img/umang.jpg">
-  <title>Hello, world! | Blog | Umang Galaiya</title>
+  <title>Making viewing diffs on GitHub a bit better | Blog | Umang Galaiya</title>
 
   <!-- CSS files -->
   <link rel="stylesheet" href="https://umanggalaiya.in/blog/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://umanggalaiya.in/blog/css/main.css">
 
-  <link rel="canonical" href="https://umanggalaiya.in/blog/2017/hello-world.html">
+  <link rel="canonical" href="https://umanggalaiya.in/blog/2018/easier-diffs-github.html">
   <link rel="alternate" type="application/rss+xml" title="Blog | Umang Galaiya" href="https://umanggalaiya.in/blog/feed.xml" />
 
   <!-- Icons -->
@@ -131,10 +131,10 @@
 
 <div id="post">
   <header class="post-header">
-    <h1 title="Hello, world!">Hello, world!</h1>
+    <h1 title="Making viewing diffs on GitHub a bit better">Making viewing diffs on GitHub a bit better</h1>
     <span class="post-meta">
       <span class="post-date">
-        7 DEC 2017
+        2 JUN 2018
       </span>
       •
       <span class="read-time" title="Estimated read time">
@@ -149,11 +149,30 @@
   </header>
 
   <article class="post-content">
-    <p>Hello, world! 👋🏼</p>
+    <p>Viewing large diffs on GitHub is a bit of a pain in the ass. I made a Chrome extension to make it slightly better.</p>
 
 <!--more-->
 
-<p>I finally got around to making a blog in Jekyll after procrastinating for weeks. Let’s just hope I can now gather the motivation to write all the posts I have lined up on my to-do list.</p>
+<p>If you spend quite some time comparing commits or branches or just reviewing large PRs in general, you might have noticed your browser taking a performance hit while you are in GitHub’s compare view and there are just a bit too many files in the diff. Folding some files helps, but that’s a lot of manual effort. Let’s automate it.</p>
+
+<p>There are exactly two reasons why I prefer files to be folded:</p>
+
+<ol>
+  <li>My browser doesn’t take a performance it.</li>
+  <li>If there is only one file open, I know I have looked at all the files above it and need to look at all the files below it. <em>Kind of like a bookmark, maybe?</em></li>
+</ol>
+
+<p>I messed around with DevTools a bit and wrote some JS that I can execute in the console to fold all the files, but then I had to press the up arrow key multiple times to reach the command, or if it’s been a long time, look for it wherever I had stored it. Again, too much effort to do something trivial.</p>
+
+<p>I got a little annoyed and decided it shouldn’t be this difficult and time consuming. So, I spent some time building a <a href="https://chrome.google.com/webstore/detail/fold-github-files/gihbbindmbgaabmockjcmlghaphecage">Chrome extension</a> to do this. <em>Ironic, I know.</em></p>
+
+<p><img src="https://umanggalaiya.in/blog/img/fold-github-files-interface.png" alt="Fold GitHub Files" style="margin-left: 0; margin-right: 0;" /></p>
+
+<p>It’s a simple enough tool that does something <em>extremely</em> trivial that GitHub should support by default. Until they do, this Chrome Extension will have to do. Download it from <a href="https://chrome.google.com/webstore/detail/fold-github-files/gihbbindmbgaabmockjcmlghaphecage">here</a>, and view the <a href="https://github.com/umanghome/fold-unfold-github/">source code on GitHub</a>.</p>
+
+<p><img src="https://media.giphy.com/media/2UBzh5JhVEKyNRaMml/giphy.gif" alt="Fold GitHub Files in action" style="margin-left: 0; margin-right: 0;" /></p>
+
+<p>Here’s to making using the web better.</p>
 
   </article>
 </div>
@@ -162,22 +181,37 @@
   <h6>Share on: </h6>
   <ul>
     <li>
-      <a href="https://twitter.com/intent/tweet?text=https://umanggalaiya.in/blog/2017/hello-world.html" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+      <a href="https://twitter.com/intent/tweet?text=https://umanggalaiya.in/blog/2018/easier-diffs-github.html" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
     </li>
     <li>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://umanggalaiya.in/blog/2017/hello-world.html" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://umanggalaiya.in/blog/2018/easier-diffs-github.html" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
     </li>
     <li>
-      <a href="https://plus.google.com/share?url=https://umanggalaiya.in/blog/2017/hello-world.html" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+      <a href="https://plus.google.com/share?url=https://umanggalaiya.in/blog/2018/easier-diffs-github.html" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
     </li>
     <li>
-      <a href="https://news.ycombinator.com/submitlink?u=https://umanggalaiya.in/blog/2017/hello-world.html" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+      <a href="https://news.ycombinator.com/submitlink?u=https://umanggalaiya.in/blog/2018/easier-diffs-github.html" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
     </li>
     <li>
-      <a href="https://www.reddit.com/submit?url=https://umanggalaiya.in/blog/2017/hello-world.html" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+      <a href="https://www.reddit.com/submit?url=https://umanggalaiya.in/blog/2018/easier-diffs-github.html" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
     </li>
   </ul>
 </div><!-- end share-buttons -->
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'umanggalaiyablog';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 
 

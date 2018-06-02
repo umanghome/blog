@@ -5,9 +5,49 @@
     <description>Musings from my everyday life as a Software Engineer</description>
     <link>https://umanggalaiya.in/blog/</link>
     <atom:link href="https://umanggalaiya.in/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 24 Feb 2018 17:44:30 +0530</pubDate>
-    <lastBuildDate>Sat, 24 Feb 2018 17:44:30 +0530</lastBuildDate>
+    <pubDate>Sat, 02 Jun 2018 15:51:37 +0530</pubDate>
+    <lastBuildDate>Sat, 02 Jun 2018 15:51:37 +0530</lastBuildDate>
     <generator>Jekyll v3.7.0</generator>
+    
+      <item>
+        <title>Making viewing diffs on GitHub a bit better</title>
+        <description>&lt;p&gt;Viewing large diffs on GitHub is a bit of a pain in the ass. I made a Chrome extension to make it slightly better.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;If you spend quite some time comparing commits or branches or just reviewing large PRs in general, you might have noticed your browser taking a performance hit while you are in GitHub’s compare view and there are just a bit too many files in the diff. Folding some files helps, but that’s a lot of manual effort. Let’s automate it.&lt;/p&gt;
+
+&lt;p&gt;There are exactly two reasons why I prefer files to be folded:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;My browser doesn’t take a performance it.&lt;/li&gt;
+  &lt;li&gt;If there is only one file open, I know I have looked at all the files above it and need to look at all the files below it. &lt;em&gt;Kind of like a bookmark, maybe?&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I messed around with DevTools a bit and wrote some JS that I can execute in the console to fold all the files, but then I had to press the up arrow key multiple times to reach the command, or if it’s been a long time, look for it wherever I had stored it. Again, too much effort to do something trivial.&lt;/p&gt;
+
+&lt;p&gt;I got a little annoyed and decided it shouldn’t be this difficult and time consuming. So, I spent some time building a &lt;a href=&quot;https://chrome.google.com/webstore/detail/fold-github-files/gihbbindmbgaabmockjcmlghaphecage&quot;&gt;Chrome extension&lt;/a&gt; to do this. &lt;em&gt;Ironic, I know.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://umanggalaiya.in/blog/img/fold-github-files-interface.png&quot; alt=&quot;Fold GitHub Files&quot; style=&quot;margin-left: 0; margin-right: 0;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s a simple enough tool that does something &lt;em&gt;extremely&lt;/em&gt; trivial that GitHub should support by default. Until they do, this Chrome Extension will have to do. Download it from &lt;a href=&quot;https://chrome.google.com/webstore/detail/fold-github-files/gihbbindmbgaabmockjcmlghaphecage&quot;&gt;here&lt;/a&gt;, and view the &lt;a href=&quot;https://github.com/umanghome/fold-unfold-github/&quot;&gt;source code on GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/2UBzh5JhVEKyNRaMml/giphy.gif&quot; alt=&quot;Fold GitHub Files in action&quot; style=&quot;margin-left: 0; margin-right: 0;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here’s to making using the web better.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 02 Jun 2018 05:30:00 +0530</pubDate>
+        <link>https://umanggalaiya.in/blog/2018/easier-diffs-github.html</link>
+        <guid isPermaLink="true">https://umanggalaiya.in/blog/2018/easier-diffs-github.html</guid>
+        
+        
+        <category>technology</category>
+        
+        <category>software</category>
+        
+        <category>product</category>
+        
+      </item>
     
       <item>
         <title>Reconnect - An experiment to reconnect</title>
