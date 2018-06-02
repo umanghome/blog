@@ -13,7 +13,7 @@ If you spend quite some time comparing commits or branches or just reviewing lar
 
 There are exactly two reasons why I prefer files to be folded:
 
-1. My browser doesn't take a performance it.
+1. My browser doesn't take a performance hit.
 2. If there is only one file open, I know I have looked at all the files above it and need to look at all the files below it. _Kind of like a bookmark, maybe?_
 
 I messed around with DevTools a bit and wrote some JS that I can execute in the console to fold all the files, but then I had to press the up arrow key multiple times to reach the command, or if it's been a long time, look for it wherever I had stored it. Again, too much effort to do something trivial.

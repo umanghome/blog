@@ -5,8 +5,8 @@
     <description>Musings from my everyday life as a Software Engineer</description>
     <link>https://umanggalaiya.in/blog/</link>
     <atom:link href="https://umanggalaiya.in/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 02 Jun 2018 15:51:37 +0530</pubDate>
-    <lastBuildDate>Sat, 02 Jun 2018 15:51:37 +0530</lastBuildDate>
+    <pubDate>Sat, 02 Jun 2018 16:26:10 +0530</pubDate>
+    <lastBuildDate>Sat, 02 Jun 2018 16:26:10 +0530</lastBuildDate>
     <generator>Jekyll v3.7.0</generator>
     
       <item>
@@ -20,7 +20,7 @@
 &lt;p&gt;There are exactly two reasons why I prefer files to be folded:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;My browser doesn’t take a performance it.&lt;/li&gt;
+  &lt;li&gt;My browser doesn’t take a performance hit.&lt;/li&gt;
   &lt;li&gt;If there is only one file open, I know I have looked at all the files above it and need to look at all the files below it. &lt;em&gt;Kind of like a bookmark, maybe?&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
