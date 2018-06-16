@@ -5,9 +5,155 @@
     <description>Musings from my everyday life as a Software Engineer</description>
     <link>https://umanggalaiya.in/blog/</link>
     <atom:link href="https://umanggalaiya.in/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 02 Jun 2018 16:26:10 +0530</pubDate>
-    <lastBuildDate>Sat, 02 Jun 2018 16:26:10 +0530</lastBuildDate>
+    <pubDate>Sat, 16 Jun 2018 22:32:20 +0530</pubDate>
+    <lastBuildDate>Sat, 16 Jun 2018 22:32:20 +0530</lastBuildDate>
     <generator>Jekyll v3.7.0</generator>
+    
+      <item>
+        <title>The no-bullshit guide to getting started with Git: Part 1</title>
+        <description>&lt;p&gt;Learning Git has a little bit of a steep learning curve. But it does not have to be this difficult. Here’s a no-bullshit guide to getting started with Git.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;When I was getting my hands dirty with Git back in college, there were very limited guides and all of them were &lt;em&gt;extremely&lt;/em&gt; technical and not very dummy-friendly. Then, guides to Git for dummies started to pop up, but they were full of extra BS that served no purpose except to confuse the reader. Here’s my attempt at making a guide that my past self would have vastly benefitted from.&lt;/p&gt;
+
+&lt;p&gt;Let’s get started.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-git&quot;&gt;What is git?&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;git-scm.com&lt;/a&gt; has the following definition:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Let’s remove all the extra jargon and simplify the definition a bit.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Git is a free and open-source version control system.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;okay-but-what-is-a-version-control-system&quot;&gt;Okay, but what is a Version Control System?&lt;/h3&gt;
+
+&lt;p&gt;Good question. Let’s figure out what a version control system really means.&lt;/p&gt;
+
+&lt;p&gt;Version Control System (VCS for short) has two different meanings. One is what VCSes are on a human-level, and the other is what VCSes mean in the Software Industry. We’ll start by understanding what a VCS means on a human-level.&lt;/p&gt;
+
+&lt;p&gt;Each of us has some sort of an intuitive version management system, which follows something along the lines of having different copies of the same project, each with different (and mostly incremental) changes. It looks something like this.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://umanggalaiya.in/blog/img/git-guide/human-vcs.png&quot; alt=&quot;&amp;quot;Version Control on a human level&amp;quot;&quot; title=&quot;Version Control on a human level&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A version management system like this works, but it starts showing some inherent problems when you are working with multiple people on the same project.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What changes does &lt;code class=&quot;highlighter-rouge&quot;&gt;Final 2&lt;/code&gt; contain? Why were the changes made? When were they made? Who made them? Alice made some changes and named them &lt;code class=&quot;highlighter-rouge&quot;&gt;Final 2&lt;/code&gt;. So did Bob. Whose &lt;code class=&quot;highlighter-rouge&quot;&gt;Final 2&lt;/code&gt; do we consider?&lt;/li&gt;
+  &lt;li&gt;Bob wants to make some changes on top of Alice’s &lt;code class=&quot;highlighter-rouge&quot;&gt;final june 2018&lt;/code&gt;. So, Alice sent Bob the entire directory &lt;code class=&quot;highlighter-rouge&quot;&gt;final june 2018&lt;/code&gt;. Oops, Bob just realized that the changes Alice made weren’t up to the specifications and are completely wrong. He decides to discard the last changes Alice made and make his own changes to fix the project. He goes to Alice.
+&lt;img src=&quot;https://umanggalaiya.in/blog/img/git-guide/comics/comic-1.png&quot; alt=&quot;&amp;quot;Problems with the Intuitive VCS&amp;quot;&quot; title=&quot;Problems with the Intuitive VCS&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let’s try to fix these problems.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Instead of names like &lt;code class=&quot;highlighter-rouge&quot;&gt;final&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Final 2&lt;/code&gt;, etc., we can instead use numbers. Or timestamps. Or anything that’s a unique identifier. Let’s go with numbers.&lt;/li&gt;
+  &lt;li&gt;We can keep a &lt;code class=&quot;highlighter-rouge&quot;&gt;CHANGES.txt&lt;/code&gt; within each copy of the project, where the author of the changes in that copy will describe all the changes made within that copy along with the reasoning for it.&lt;/li&gt;
+  &lt;li&gt;We can also keep a master &lt;code class=&quot;highlighter-rouge&quot;&gt;LOG.txt&lt;/code&gt; file which contains the time when a copy was published, who made the copy, and the logical order of copies.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These fixes sound pretty trivial and should easily fix our problems, but anyone who has tried to enforce standards on a bunch of human entities knows this is close to impossible to achieve across teams, let alone across the industry. Nevertheless, we just devised our own version control system.&lt;/p&gt;
+
+&lt;p&gt;Now that we understand what a version control system is and why we need it, let’s answer the next question.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-git&quot;&gt;Why Git?&lt;/h3&gt;
+
+&lt;p&gt;There are lots of version control systems out there. A simple &lt;a href=&quot;https://www.google.com/search?q=version+control+systems&quot;&gt;Google search&lt;/a&gt; lists more than ten version control systems. To add to it, why not use the version control system we just devised? Why would someone want to use Git over everything else?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://umanggalaiya.in/blog/img/git-guide/vcs-list.png&quot; alt=&quot;&amp;quot;Version Control Systems from Google Search&amp;quot;&quot; title=&quot;Version Control Systems from Google Search&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There’s a long answer too, but I’m going to go with the shorter one: Git is everywhere. Chances are, if you work at any of the startups spawned within the last three to five years, you will end up using Git. And GitHub is a pretty popular place to host source code of open source projects as well as a great way to showcase your programming prowess.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Wait, are Git and GitHub different?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Yes. Git is a protocol - a VCS. GitHub is where you can store the project. A good (although a &lt;em&gt;tiny&lt;/em&gt; bit flawed) analogy can be seen in the difference between Pizza and Pizza places like Dominos and Pizza Hut. Food = VCS, Pizza = Git, Dominos = GitHub.&lt;/p&gt;
+
+&lt;p&gt;There are alternatives to GitHub too, like GitLab and BitBucket. They too use Git as the protocol. However, for the rest of the guide, I will be using GitHub as the example while talking about Git hosting providers.&lt;/p&gt;
+
+&lt;h3 id=&quot;lets-go-over-some-terms&quot;&gt;Let’s go over some terms.&lt;/h3&gt;
+
+&lt;h5 id=&quot;what-is-a-repository&quot;&gt;What is a repository?&lt;/h5&gt;
+
+&lt;p&gt;A repository is a project in terms of Git. If you were building Uber, the entire project could be one repository, say &lt;code class=&quot;highlighter-rouge&quot;&gt;uber&lt;/code&gt;. Or, if you decide to separate different parts of the project into their own sub-projects, you could come up with multiple repositories like &lt;code class=&quot;highlighter-rouge&quot;&gt;uber-backend&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;uber-android&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;uber-ios&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;uber-web&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;“repo” is an alias for “repository”.&lt;/p&gt;
+
+&lt;h5 id=&quot;what-is-a-repository-url&quot;&gt;What is a repository URL?&lt;/h5&gt;
+
+&lt;p&gt;A Git project exists at a certain URL. Think of this URL as the copy of the project that is the source-of-truth. All the changes you make get saved here, and all the changes that someone else made that you want to incorporate into your own copy will be fetched from here.&lt;/p&gt;
+
+&lt;p&gt;Let us consider this repository: &lt;a href=&quot;https://github.com/github/explore&quot;&gt;https://github.com/github/explore&lt;/a&gt;. If you click on the green “Clone or Download” button, you will see a URL for the repo.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://umanggalaiya.in/blog/img/git-guide/repo-url.png&quot; alt=&quot;&amp;quot;Repository URL&amp;quot;&quot; title=&quot;Repository URL&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You might see any of the following two URLS:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;git@github.com:github/explore.git&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git@github.com:github/explore.git&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/github/explore.git&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;https://github.com/github/explore.git&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The first is the SSH URL, while the second is the HTTPS URL. The text that says “Use SSH” and “Use HTTPS” can be used to switch between the two.&lt;/p&gt;
+
+&lt;h5 id=&quot;what-are-the-differences-between-https-url-and-ssh-url&quot;&gt;What are the differences between HTTPS URL and SSH URL?&lt;/h5&gt;
+
+&lt;p&gt;This answer requires you to be familiar with SSH. If you are not, consider SSH to be a proof-of-identity that says, “Hey, this device belongs to John.” There is an SSH key I can set up on my computer and tell GitHub that for any requests that have this key, assume the user to be me. That SSH key then becomes a way to identify my computer.&lt;/p&gt;
+
+&lt;p&gt;Repos can be fetched over HTTPS as well as SSH. Fetching changes from a public repository doesn’t require your identity, but adding changes to the repository does. The repository needs to know which user intends to save the user. Fetching changes from a private repository requries your identity, though, due to access-control.&lt;/p&gt;
+
+&lt;p&gt;If you use SSH, your SSH key acts as the identifier. If you use HTTPS, you will need to use your email and password to identify yourself.&lt;/p&gt;
+
+&lt;p&gt;I personally prefer using SSH because I don’t need to enter my email and password every time I need to identify myself, the SSH key handles it automatically. However, SSH requires a setup. If you are just starting out, I would recommend you use HTTPS.&lt;/p&gt;
+
+&lt;p&gt;To fetch a repository, you would need to use the following command:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git clone &amp;lt;repo-url&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;For the example above, one would use &lt;code class=&quot;highlighter-rouge&quot;&gt;git clone https://github.com/github/explore.git&lt;/code&gt;. This would make a directory named &lt;code class=&quot;highlighter-rouge&quot;&gt;explore&lt;/code&gt; containing the contents of the repository.&lt;/p&gt;
+
+&lt;p&gt;This is also known as “cloning” a repository.&lt;/p&gt;
+
+&lt;h3 id=&quot;exercises-for-the-reader&quot;&gt;Exercises for the reader&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Set up Git.&lt;/li&gt;
+  &lt;li&gt;Clone 3 repositories.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;whats-coming-in-the-next-parts&quot;&gt;What’s coming in the next parts&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What are diffs?&lt;/li&gt;
+  &lt;li&gt;What is staging?&lt;/li&gt;
+  &lt;li&gt;What are commits?&lt;/li&gt;
+  &lt;li&gt;What are branches?&lt;/li&gt;
+  &lt;li&gt;What is a merge?&lt;/li&gt;
+  &lt;li&gt;What are merge conflicts?&lt;/li&gt;
+  &lt;li&gt;How does one fix merge conflicts?&lt;/li&gt;
+  &lt;li&gt;What is a pull request?&lt;/li&gt;
+  &lt;li&gt;Commonly used patterns for Git.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If there’s something that you would like to add to this list, please leave a comment and if it is beginner friendly, I will make sure to add it to the upcoming parts.&lt;/p&gt;
+
+&lt;p&gt;If there is something in this part that you feel could be explained in simpler terms, please let me know and I shall update this.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 16 Jun 2018 05:30:00 +0530</pubDate>
+        <link>https://umanggalaiya.in/blog/2018/no-bs-git-guide-part-1.html</link>
+        <guid isPermaLink="true">https://umanggalaiya.in/blog/2018/no-bs-git-guide-part-1.html</guid>
+        
+        
+        <category>technology</category>
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>Making viewing diffs on GitHub a bit better</title>
