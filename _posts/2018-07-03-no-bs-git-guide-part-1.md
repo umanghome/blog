@@ -4,6 +4,7 @@ title:  "The no-bullshit guide to getting started with Git: Part 1"
 date:   2018-06-16 00:00:00
 categories: [technology, software]
 comments: true
+keywords: [git, guide, simple, no, bullshit]
 ---
 Learning Git has a little bit of a steep learning curve. But it does not have to be this difficult. Here's a no-bullshit guide to getting started with Git.
 

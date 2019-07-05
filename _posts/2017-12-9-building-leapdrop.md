@@ -4,6 +4,7 @@ title:  "Building LeapDrop"
 date:   2017-12-07 12:22:19
 categories: [technology, hackathons]
 comments: true
+keywords: [leapdrop, leap motion, websockets, gestures]
 ---
 Hi, there. I’ve been meaning to write a post about how we built LeapDrop at the
 [InOut](https://hackinout.co/) 3.0 Hackathon. We eventually won Best Hardware
