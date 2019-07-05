@@ -5,9 +5,64 @@
     <description>Musings from my everyday life as a Software Engineer</description>
     <link>https://umanggalaiya.in/blog/</link>
     <atom:link href="https://umanggalaiya.in/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 16 Jun 2018 22:32:20 +0530</pubDate>
-    <lastBuildDate>Sat, 16 Jun 2018 22:32:20 +0530</lastBuildDate>
+    <pubDate>Fri, 05 Jul 2019 19:19:47 +0530</pubDate>
+    <lastBuildDate>Fri, 05 Jul 2019 19:19:47 +0530</lastBuildDate>
     <generator>Jekyll v3.7.0</generator>
+    
+      <item>
+        <title>Peculiarities of setting inputRef.value</title>
+        <description>&lt;p&gt;With JavaScript, setting values on input elements programmatically doesn’t trigger any events. This breaks apps. Let’s talk about it.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;If you’ve been writing vanilla JS for a while, you would have run into instances where you had to set values of input elements. The general pattern on going about doing this is setting the &lt;code class=&quot;highlighter-rouge&quot;&gt;value&lt;/code&gt; property of the input element. However, there’s an oddity around this that I, along with a friend, discovered last week.&lt;/p&gt;
+
+&lt;p&gt;With modern apps come modern libraries and frameworks. And usually in those libraries, things change based on the value of input fields. Things go smooth and as expected while operations are being performed within the purview of the library/framework. For example, a React component might set the value of a property in the state when an event is fired, and then use that value to set the input’s value (a.k.a controlled inputs):&lt;/p&gt;
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onInput&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We happened to use &lt;a href=&quot;https://svelte.dev&quot;&gt;Svelte&lt;/a&gt; (v2) in one of our projects. It has a slightly different syntax(?), but would do something very similar to the React example above:&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;bind:value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;A gist of what’s happening here: We have a property &lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt; in our state, whose value we’re &lt;em&gt;binding&lt;/em&gt; to the input element. Now, every time the input element is changed, &lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt; is updated to the value. And any time the &lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt; property of the state is updated, the input’s value changes. Like I said, very similar to the React example. Svelte generates code that adds a listener on &lt;code class=&quot;highlighter-rouge&quot;&gt;input&lt;/code&gt; event, which updates the state.&lt;/p&gt;
+
+&lt;p&gt;Things are all good till this point, because all the getting/setting is happening from within the library’s or the framework’s runtime. However, what if some other script running on the page wanted to update the value of the input field? Ideally, they’d say&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'#name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'John Doe'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;When the script executes this, the visual value of the input field changes. But, the property in the state doesn’t change. Why?&lt;/p&gt;
+
+&lt;p&gt;It’s because setting the &lt;code class=&quot;highlighter-rouge&quot;&gt;value&lt;/code&gt; property of the input element doesn’t trigger any events. So there’s no &lt;code class=&quot;highlighter-rouge&quot;&gt;input&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;change&lt;/code&gt; that is fired. This doesn’t trigger any listeners that would have updated the state and something in the application would have &lt;em&gt;reacted&lt;/em&gt; to the change in this value. The application’s regular flow breaks.&lt;/p&gt;
+
+&lt;p&gt;So, in the light of this new information, how should one go about updating the value of an input field using just vanilla JS?&lt;/p&gt;
+
+&lt;p&gt;One (and I’d argue the most ideal) way would be to trigger the &lt;code class=&quot;highlighter-rouge&quot;&gt;change&lt;/code&gt; event manually after setting the &lt;code class=&quot;highlighter-rouge&quot;&gt;value&lt;/code&gt; property:&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'#name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'John Doe'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dispatchEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'change'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;bubbles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now that we know exactly what JS should be executed every time we want to update the value of an input element, why not abstract it out to a function,&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;updateInput&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dispatchEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'change'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;bubbles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;and then user that function every time we want to update an input field?&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;updateInput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'#name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'John Doe'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Of course, this doesn’t work with IE. But there are always &lt;a href=&quot;https://stackoverflow.com/questions/26596123/internet-explorer-9-10-11-event-constructor-doesnt-work&quot;&gt;workarounds&lt;/a&gt; that can help you make this work cross-browser.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 05 Jul 2019 05:30:00 +0530</pubDate>
+        <link>https://umanggalaiya.in/blog/2019/input-value-peculiarity.html</link>
+        <guid isPermaLink="true">https://umanggalaiya.in/blog/2019/input-value-peculiarity.html</guid>
+        
+        
+        <category>software</category>
+        
+        <category>javascript</category>
+        
+      </item>
     
       <item>
         <title>The no-bullshit guide to getting started with Git: Part 1</title>

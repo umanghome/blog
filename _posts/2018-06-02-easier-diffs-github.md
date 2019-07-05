@@ -4,6 +4,7 @@ title:  "Making viewing diffs on GitHub a bit better"
 date:   2018-06-02 00:00:00
 categories: [technology, software, product]
 comments: true
+keywords: [fold, github, review, diff]
 ---
 Viewing large diffs on GitHub is a bit of a pain in the ass. I made a Chrome extension to make it slightly better.
 
