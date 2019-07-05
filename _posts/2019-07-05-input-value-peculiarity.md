@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Peculiarities of setting inputRef.value"
-date:   2019-06-30 00:00:00
+date:   2019-07-05 00:00:00
 categories: [software, javascript]
 comments: true
 ---
