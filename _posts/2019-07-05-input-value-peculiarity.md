@@ -4,6 +4,7 @@ title:  "Peculiarities of setting inputRef.value"
 date:   2019-07-05 00:00:00
 categories: [software, javascript]
 comments: true
+keywords: [javascript, input, value, onchange, oninput, event, change, input]
 ---
 If you've been writing vanilla JS for a while, you would have run into instances where you had to set values of input elements. The general pattern on going about doing this is setting the `value` property of the input element. However, there's an oddity around this that I, along with a friend, discovered last week.
 
