@@ -6,6 +6,10 @@ categories: [software, javascript]
 comments: true
 keywords: [javascript, input, value, onchange, oninput, event, change, input]
 ---
+With JavaScript, setting values on input elements programmatically doesn't trigger any events. This breaks apps. Let's talk about it.
+
+<!--more-->
+
 If you've been writing vanilla JS for a while, you would have run into instances where you had to set values of input elements. The general pattern on going about doing this is setting the `value` property of the input element. However, there's an oddity around this that I, along with a friend, discovered last week.
 
 With modern apps come modern libraries and frameworks. And usually in those libraries, things change based on the value of input fields. Things go smooth and as expected while operations are being performed within the purview of the library/framework. For example, a React component might set the value of a property in the state when an event is fired, and then use that value to set the input's value (a.k.a controlled inputs):
