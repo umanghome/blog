@@ -5,9 +5,76 @@
     <description>Musings from my everyday life as a Software Engineer</description>
     <link>https://umanggalaiya.in/blog/</link>
     <atom:link href="https://umanggalaiya.in/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 05 Jul 2019 19:19:47 +0530</pubDate>
-    <lastBuildDate>Fri, 05 Jul 2019 19:19:47 +0530</lastBuildDate>
+    <pubDate>Tue, 06 Aug 2019 00:34:10 +0530</pubDate>
+    <lastBuildDate>Tue, 06 Aug 2019 00:34:10 +0530</lastBuildDate>
     <generator>Jekyll v3.7.0</generator>
+    
+      <item>
+        <title>A love letter to Svelte</title>
+        <description>&lt;p&gt;An appreciation post for &lt;a href=&quot;https://svelte.dev&quot;&gt;Svelte&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;I started writing HTML about fourteen years ago. Just plain, old HTML. Then about six years ago, I learned CSS and found the web to be a really, really cool platform to build things upon. I learned JavaScript and PHP and all that jazz and built &lt;a href=&quot;https://pictureband.co&quot;&gt;Picture Band&lt;/a&gt;. Picture Band’s frontend had a lot JavaScript, and all of it was jQuery.&lt;/p&gt;
+
+&lt;p&gt;Then I met with someone who wanted to discuss about Picture Band, and they recommended I port Picture Band to a mobile app using Cordova and React. “React”? I’d read that word a lot on the Internet but I was so intimidated from the hype around it that I never really felt comfortable learning it.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Friendly reminder that the quickest way to learn something is to just get started.&lt;br /&gt;&lt;br /&gt;Three and a half years ago, I was so intimidated by the hype around Node.js and React.js that it prevented me from exploring them.&lt;/p&gt;&amp;mdash; Umang Galaiya (@umanghome) &lt;a href=&quot;https://twitter.com/umanghome/status/966211981064769538?ref_src=twsrc%5Etfw&quot;&gt;February 21, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;But I eventually did. And I fell in love. It was just &lt;em&gt;so&lt;/em&gt; damn easy to build things with React. And fun too. It was a total game-changer at the time. It wouldn’t be a stretch if someone thought I got into writing frontend apps just because of React. Over the next couple of years, I had built a lot of shit with React. And it was fun.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;I will forever be grateful to &lt;a href=&quot;https://twitter.com/facebook?ref_src=twsrc%5Etfw&quot;&gt;@facebook&lt;/a&gt; for giving the world React and React Native.&lt;/p&gt;&amp;mdash; Umang Galaiya (@umanghome) &lt;a href=&quot;https://twitter.com/umanghome/status/658658179660668928?ref_src=twsrc%5Etfw&quot;&gt;October 26, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;About a year ago, our team at &lt;a href=&quot;https://razorpay.com&quot;&gt;Razorpay&lt;/a&gt; decided we were going to write all new apps in &lt;a href=&quot;https://svelte.dev&quot;&gt;Svelte&lt;/a&gt;. Svelte is built by Rich Harris, who has also written &lt;a href=&quot;https://rollupjs.org&quot;&gt;rollup.js&lt;/a&gt; (our bundler of choice at Razorpay). I didn’t have any strong feelings about the decision.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Svelte is a framework for building frontend apps. It compiles everything down to native DOM calls at build-time.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Svelte was at &lt;a href=&quot;https://v2.svelte.dev&quot;&gt;v2&lt;/a&gt; when we started using it. It felt a lot like React. &lt;code class=&quot;highlighter-rouge&quot;&gt;setState&lt;/code&gt; became &lt;code class=&quot;highlighter-rouge&quot;&gt;set&lt;/code&gt;, and a lot of APIs looked kinda similar with some changes sprinkled here and there.&lt;/p&gt;
+
+&lt;p&gt;I kinda started liking Svelte more and more as we kept using it. OVer a couple of weeks, I had completely stopped writing React and would prefer writing Vanilla or Svelte. But it wasn’t &lt;em&gt;love&lt;/em&gt; yet. But I was impressed with Svelte. So much that I’d decided I was going to talk about it at &lt;a href=&quot;https://hasgeek.com/jsfoo/2019/&quot;&gt;JSFoo 2019&lt;/a&gt;. I started preparing a proposal built on Svelte v2. I knew v3 was in the works and had read a couple RFCs, but I didn’t think it would be released exactly a day after I had finished preparing my proposal based on Svelte v2. Had to scrap the proposal, go through v3 docs and tutorial, and rebuild everything from scratch. Wasn’t bad.&lt;/p&gt;
+
+&lt;p&gt;v3 looked really cool with reactivity being it’s core idea. We thought about upgrading one of our apps to v3. There’s this really cool thing called &lt;a href=&quot;https://github.com/sveltejs/svelte-upgrade&quot;&gt;svelte-upgrade&lt;/a&gt; that converts v2 templates to v3 and saves a lot of effort. We decided not to go ahead with the upgrade and stuck to v2. All good.&lt;/p&gt;
+
+&lt;p&gt;Then, this weekend, Razorpay had an internal Hackathon where my team and I decided to build something that would let your phone and computer talk to each other for Payments. This needed a UI, both on the phone and on the computer. I don’t really know how to build UIs in Android and decided to use a WebView instead. We forked the Svelte v3 &lt;a href=&quot;https://github.com/sveltejs/template&quot;&gt;template&lt;/a&gt; and got around to building the UI. This was the first time I was building something full-fledged with Svelte v3. Everything else I’d written with v3 were just things I was trying out in the framework.&lt;/p&gt;
+
+&lt;p&gt;By the end of the Hackathon, we had built a UI that looked production-grade. Transitions and all that jazz. And never once during the time did I feel I had to wrestle with Svelte. Things fell right into place, and so beautifully at that! This is when I fell in love with Svelte. It’s the same exact feeling I had when I had fallen in love with React after using jQuery for years.&lt;/p&gt;
+
+&lt;p&gt;v3 has some quirks, especially if you’re coming from v2, but they’re okay and never felt like deal-breakers. It’s a relatively new framework and I’m sure it’s going to be a lot better once it matures. But even at this point in time, when v3 is less than six months old, writing Svelte feels like a breeze.&lt;/p&gt;
+
+&lt;p&gt;I would never consider myself a transitions guy. I suck at writing animations. I make do with &lt;code class=&quot;highlighter-rouge&quot;&gt;transform&lt;/code&gt;s and &lt;code class=&quot;highlighter-rouge&quot;&gt;transition&lt;/code&gt;s. But Svelte’s baked-in support for transitions enabled me to create something that looks like this, and performs without a glitch.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/0TMNf-2ubD0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/qH2Hk8V5RL4&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Things in Svelte are reactive by default. No more invoking &lt;code class=&quot;highlighter-rouge&quot;&gt;setState&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;set&lt;/code&gt; every time you need to change something. Reassign the variable and watch things &lt;em&gt;react&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I love computed props and how you never have to worry about updating props that depend on other props. Everything takes care of itself.&lt;/p&gt;
+
+&lt;p&gt;I love scoped CSS.&lt;/p&gt;
+
+&lt;p&gt;I love how writing Svelte templates feels just like writing plain, old HTML.&lt;/p&gt;
+
+&lt;p&gt;I’d gone through the &lt;a href=&quot;https://sapper.svelte.dev/&quot;&gt;Sapper&lt;/a&gt; docs a couple of days ago, and even that felt well-thought, easy to get started with. Much easier than fighting with react-router and watching the API change every six months.&lt;/p&gt;
+
+&lt;p&gt;If you’ve never given Svelte a try, now is the time. It won’t solve all your problems, maybe your app would be better off written in React/Vue/Angular/whatever. But Svelte really shines at times and is &lt;em&gt;extremely&lt;/em&gt; pleasant to write. It’s like writing Python after years of C++.&lt;/p&gt;
+
+&lt;p&gt;I’ll be &lt;a href=&quot;https://hasgeek.com/jsfoo/2019/schedule/rethinking-frontend-apps-with-svelte-wgXuufqr6bvB2Zt8gDnCRj&quot;&gt;talking about Svelte at JSFoo this year&lt;/a&gt;. If you’re around and would like to hear me fanboy-ing over Svelte, drop by!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 06 Aug 2019 00:30:00 +0530</pubDate>
+        <link>https://umanggalaiya.in/blog/2019/svelte-love-letter.html</link>
+        <guid isPermaLink="true">https://umanggalaiya.in/blog/2019/svelte-love-letter.html</guid>
+        
+        
+        <category>software</category>
+        
+        <category>javascript</category>
+        
+      </item>
     
       <item>
         <title>Peculiarities of setting inputRef.value</title>
