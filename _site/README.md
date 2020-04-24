@@ -1,3 +1,12 @@
+# Umang's notes
+- This uses ruby 2.6.3
+- Move away from this as soon as you have time. Use node. please.
+
+Commands:
+- `gem install bundler jekyll`
+- `bundler install`
+- `bundle exec jekyll serve`
+
 # Update 05/06/2016
 
 Important! It's better to download the gzipped files instead of forking the repo. I would really appreciate if you could give me a star. 😁
