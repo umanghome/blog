@@ -14,7 +14,7 @@ keywords: ["programming", "software", "engineer", "engineering", "frontend", "ja
 # Jekyll configuration
 ####################################
 #
-timezone:          Asia/Calcutta
+timezone:          Asia/Kolkata
 markdown:          kramdown
 highlighter:       rouge
 excerpt_separator: <!--more-->
