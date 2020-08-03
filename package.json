@@ -1,0 +1,32 @@
+{
+  "name": "blog-eleventy",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start-eleventy": "npx eleventy --serve",
+    "start": "npx gulp && concurrently \"npx gulp watch\" \"npx eleventy --serve\"",
+    "build": "NODE_ENV=production npx gulp && NODE_ENV=production npx eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umanghome/blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umanghome/blog/issues"
+  },
+  "homepage": "https://github.com/umanghome/blog#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "concurrently": "^5.2.0",
+    "gulp": "^4.0.2",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sass": "^4.1.0",
+    "markdown-it": "^11.0.0",
+    "sass": "^1.26.10"
+  }
+}

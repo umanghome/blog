@@ -1,0 +1,30 @@
+{% if page.author %} {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %} {% endif %}
+
+<div class="cover-card table-cell table-middle">
+  {% if author.avatar %}
+  <img src="{{ site.url }}/img/{{ author.avatar }}" alt="" class="avatar">
+  {% endif %}
+  <a href="{{ site.url }}/" class="author_name">{{ author.name }}</a>
+  <span class="author_job">{{ author.job }}</span>
+  <span class="author_bio mbm">{{ author.bio }}</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="{{ site.url }}/">home</a>
+      </li>
+      {% for page in collections.pages %}
+        {% if page.data.title %}
+          <li class="nav-item">
+            <span>/</span>
+            <a href="{{ site.url }}{{ page.url }}">{{ page.data.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+      <li class="nav-item">
+        <span>/</span>
+        <a href="https://umanggalaiya.in/">portfolio</a>
+      </li>
+    </ul>
+  </nav>
+  {% include social-links.html %}
+</div>

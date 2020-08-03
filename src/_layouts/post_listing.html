@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+{% for post in collections.posts %}
+<section class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      <span class="post-date">
+        {{ post.date | date: "%d %b %Y" | upcase }}
+      </span>
+      {% if post.data.categories.size > 0 %}
+      •
+      {% for cat in post.data.categories %}
+        <a class="post-cat" href="{{ site.url }}/categories/#{{ cat }}">{{ cat }}</a>
+        {% unless forloop.last %}
+        <span>/</span>
+        {% endunless %}
+      {% endfor %}
+      {% endif %}
+    </p>
+    <h4>
+      <a href="{{ site.url }}{{ post.url }}" class="post-title" title="{{ post.data.title }}">{{ post.data.title }}</a>
+      {% if post.data.link %}
+        <a class="post-title-link" href="{{ post.data.link }}" target="_blank" title="{{ post.data.title }}"><i class="fa fa-external-link"></i></a>
+      {% endif %}
+    </h4>
+
+    {% if post.data.author %}
+      {% assign author = site.data.authors[post.data.author] %}
+    {% else %}
+      {% assign author = site.owner %}
+    {% endif %}
+
+    </header>
+
+    {% if post.data.excerpt %}
+    <div class="post-description">
+      {{ post.data.excerpt | markdownify }}
+    </div>
+    {% endif %}
+
+    {% if post.data.image.feature %}
+    <div class="post-image-feature">
+      <img src=
+      {% if post.data.image.feature contains 'http' %}
+      "{{ post.data.image.feature }}"
+      {% else %}
+      "{{ site.url }}/img/{{ post.data.image.feature }}"
+      {% endif %}
+      alt="{{ post.data.title }} feature image">
+
+      {% if post.data.image.credit %}
+      <span class="image-credit">Photo Credit: <a href="{{ post.data.image.creditlink }}">{{ post.data.image.credit }}</a></span>
+      {% endif %}
+    </div><!-- /.image-wrap -->
+    {% endif %}
+
+</section>
+{% endfor %}
