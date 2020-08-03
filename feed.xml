@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+>
+	<channel>
+		<title>Blog | Umang Galaiya</title>
+		<description>Musings from my everyday life as a Software Engineer</description>		
+		<sy:updatePeriod>weekly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+		<link>https://umanghome.github.io/blog</link>
+		<atom:link href="https://umanghome.github.io/blog//feed.xml" rel="self" type="application/rss+xml" />
+		<lastBuildDate>Sat Apr 25 2020 06:10:00 GMT+0530 (India Standard Time)</lastBuildDate><item>
+				<title>Event Handlers and Svelte</title>
+				<dc:creator>Umang Galaiya</dc:creator>
+        <description>Svelte makes writing event handlers fun. Let's see how.</description>
+				<pubDate>Sat Apr 25 2020 06:10:00 GMT+0530 (India Standard Time)</pubDate>
+				<link>https://umanghome.github.io/blog/2020/svelte-event-handlers.html</link>
+				<guid isPermaLink="true">https://umanghome.github.io/blog/2020/svelte-event-handlers.html</guid><category>software</category><category>javascript</category></item><item>
+				<title>A love letter to Svelte</title>
+				<dc:creator>Umang Galaiya</dc:creator>
+        <description>An appreciation post for [Svelte](https://svelte.dev).</description>
+				<pubDate>Tue Aug 06 2019 00:30:00 GMT+0530 (India Standard Time)</pubDate>
+				<link>https://umanghome.github.io/blog/2019/svelte-love-letter.html</link>
+				<guid isPermaLink="true">https://umanghome.github.io/blog/2019/svelte-love-letter.html</guid><category>software</category><category>javascript</category></item><item>
+				<title>Peculiarities of setting inputRef.value</title>
+				<dc:creator>Umang Galaiya</dc:creator>
+        <description>With JavaScript, setting values on input elements programmatically doesn't trigger any events. This breaks apps. Let's talk about it.</description>
+				<pubDate>Fri Jul 05 2019 05:30:00 GMT+0530 (India Standard Time)</pubDate>
+				<link>https://umanghome.github.io/blog/2019/input-value-peculiarity.html</link>
+				<guid isPermaLink="true">https://umanghome.github.io/blog/2019/input-value-peculiarity.html</guid><category>software</category><category>javascript</category></item><item>
+				<title>The no-bullshit guide to getting started with Git: Part 1</title>
+				<dc:creator>Umang Galaiya</dc:creator>
+        <description>Learning Git has a little bit of a steep learning curve. But it does not have to be this difficult. Here's a no-bullshit guide to getting started with Git.</description>
+				<pubDate>Sat Jun 16 2018 05:30:00 GMT+0530 (India Standard Time)</pubDate>
+				<link>https://umanghome.github.io/blog/2018/no-bs-git-guide-part-1.html</link>
+				<guid isPermaLink="true">https://umanghome.github.io/blog/2018/no-bs-git-guide-part-1.html</guid><category>technology</category><category>software</category></item><item>
+				<title>Making viewing diffs on GitHub a bit better</title>
+				<dc:creator>Umang Galaiya</dc:creator>
+        <description>Viewing large diffs on GitHub is a bit of a pain in the ass. I made a Chrome extension to make it slightly better.</description>
+				<pubDate>Sat Jun 02 2018 05:30:00 GMT+0530 (India Standard Time)</pubDate>
+				<link>https://umanghome.github.io/blog/2018/easier-diffs-github.html</link>
+				<guid isPermaLink="true">https://umanghome.github.io/blog/2018/easier-diffs-github.html</guid><category>technology</category><category>software</category><category>product</category></item><item>
+				<title>Reconnect - An experiment to reconnect</title>
+				<dc:creator>Umang Galaiya</dc:creator>
+        <description>In the final quarter of 2017, I set out to validate a personal idea I had been sitting on for a while - a service that reminds me to reconnect with the people I know but don't meet on a regular basis.</description>
+				<pubDate>Sat Feb 24 2018 17:30:00 GMT+0530 (India Standard Time)</pubDate>
+				<link>https://umanghome.github.io/blog/2018/reconnect.html</link>
+				<guid isPermaLink="true">https://umanghome.github.io/blog/2018/reconnect.html</guid><category>technology</category><category>experiments</category><category>software</category><category>product</category></item><item>
+				<title>Building LeapDrop</title>
+				<dc:creator>Umang Galaiya</dc:creator>
+        <description>Hi, there. I’ve been meaning to write a post about how we built LeapDrop at the [InOut](https://hackinout.co/) 3.0 Hackathon. We eventually won Best Hardware Hack sponsored by [Hackster.io](https://www.hackster.io/).</description>
+				<pubDate>Thu Dec 07 2017 17:52:19 GMT+0530 (India Standard Time)</pubDate>
+				<link>https://umanghome.github.io/blog/2017/building-leapdrop.html</link>
+				<guid isPermaLink="true">https://umanghome.github.io/blog/2017/building-leapdrop.html</guid><category>technology</category><category>hackathons</category></item><item>
+				<title>Hello, world!</title>
+				<dc:creator>Umang Galaiya</dc:creator>
+        <description>Hello, world! 👋🏼</description>
+				<pubDate>Thu Dec 07 2017 16:52:19 GMT+0530 (India Standard Time)</pubDate>
+				<link>https://umanghome.github.io/blog/2017/hello-world.html</link>
+				<guid isPermaLink="true">https://umanghome.github.io/blog/2017/hello-world.html</guid><category>random</category></item></channel>
+</rss>

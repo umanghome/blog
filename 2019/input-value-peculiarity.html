@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Musings from my everyday life as a Software Engineer">
+  <meta name="keywords" content="programming, software, engineer, engineering, frontend, javascript, code, technology, tech, umang, galaiya, umanghome, blog">
+  <meta name="author" content="Blog | Umang Galaiya">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f5">
+
+  <!-- Twitter Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Blog | Umang Galaiya">
+  <meta name="twitter:description" content="Musings from my everyday life as a Software Engineer">
+  <meta name="twitter:image" content="https://umanghome.github.io/blog/img/umang.jpg">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="https://umanghome.github.io/blog/2019/input-value-peculiarity.html">
+  <meta property="og:title" content="Blog | Umang Galaiya">
+  <meta property="og:description" content="Musings from my everyday life as a Software Engineer">
+  <meta property="og:image" content="https://umanghome.github.io/blog/img/umang.jpg">
+  <title>Blog | Umang Galaiya</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="https://umanghome.github.io/blog/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://umanghome.github.io/blog/css/main.css">
+
+  <link rel="canonical" href="https://umanghome.github.io/blog/2019/input-value-peculiarity.html">
+  <link rel="alternate" type="application/rss+xml" title="Blog | Umang Galaiya" href="https://umanghome.github.io/blog/feed.xml" />
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="https://umanghome.github.io/blog/img/favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+         
+
+<div class="cover-card table-cell table-middle">
+  
+  <img src="https://umanghome.github.io/blog/img/umang.jpg" alt="" class="avatar">
+  
+  <a href="https://umanghome.github.io/blog/" class="author_name">Umang Galaiya</a>
+  <span class="author_job">Frontend Engineer at Razorpay</span>
+  <span class="author_bio mbm">HCI and Technology nerd</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="https://umanghome.github.io/blog/">home</a>
+      </li>
+      
+        
+          <li class="nav-item">
+            <span>/</span>
+            <a href="https://umanghome.github.io/blog/archive/">Archive</a>
+          </li>
+        
+      
+        
+          <li class="nav-item">
+            <span>/</span>
+            <a href="https://umanghome.github.io/blog/categories/">Categories</a>
+          </li>
+        
+      
+        
+      
+      <li class="nav-item">
+        <span>/</span>
+        <a href="https://umanggalaiya.in/">portfolio</a>
+      </li>
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+      <li>
+      <script>gen_mail_to_link('umang@umanggalaiya.in', 'Hello from website');</script>
+      </li>
+    
+    <li><a href="http://twitter.com/umanghome" class="social-link-item" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
+    <li><a href="http://facebook.com/umanghome" class="social-link-item" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
+    
+    <li><a href="http://linkedin.com/in/umanggalaiya" class="social-link-item" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a></li>
+    
+    <li><a href="http://instagram.com/umanghome" class="social-link-item" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
+    
+    <li><a href="http://github.com/umanghome" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+    <li><a href="http://stackoverflow.com/users/4176188/umang-galaiya" class="social-link-item" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i></a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        
+<a class="btn" href= "https://umanghome.github.io/blog/" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="Peculiarities of setting inputRef.value">Peculiarities of setting inputRef.value</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        05 JUL 2019
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    1 min read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <p>With JavaScript, setting values on input elements programmatically doesn't trigger any events. This breaks apps. Let's talk about it.</p>
+
+    <p>If you've been writing vanilla JS for a while, you would have run into instances where you had to set values of input elements. The general pattern on going about doing this is setting the <code>value</code> property of the input element. However, there's an oddity around this that I, along with a friend, discovered last week.</p>
+<p>With modern apps come modern libraries and frameworks. And usually in those libraries, things change based on the value of input fields. Things go smooth and as expected while operations are being performed within the purview of the library/framework. For example, a React component might set the value of a property in the state when an event is fired, and then use that value to set the input's value (a.k.a controlled inputs):</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">onInput</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token parameter">e</span> <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p>We happened to use <a href="https://svelte.dev">Svelte</a> (v2) in one of our projects. It has a slightly different syntax(?), but would do something very similar to the React example above:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name"><span class="token namespace">bind:</span>value</span><span class="token attr-value"><span class="token punctuation">=</span>name</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
+<p>A gist of what's happening here: We have a property <code>name</code> in our state, whose value we're <em>binding</em> to the input element. Now, every time the input element is changed, <code>name</code> is updated to the value. And any time the <code>name</code> property of the state is updated, the input's value changes. Like I said, very similar to the React example. Svelte generates code that adds a listener on <code>input</code> event, which updates the state.</p>
+<p>Things are all good till this point, because all the getting/setting is happening from within the library's or the framework's runtime. However, what if some other script running on the page wanted to update the value of the input field? Ideally, they'd say</p>
+<pre class="language-js"><code class="language-js">document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#name'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">'John Doe'</span><span class="token punctuation">;</span></code></pre>
+<p>When the script executes this, the visual value of the input field changes. But, the property in the state doesn't change. Why?</p>
+<p>It's because setting the <code>value</code> property of the input element doesn't trigger any events. So there's no <code>input</code> or <code>change</code> that is fired. This doesn't trigger any listeners that would have updated the state and something in the application would have <em>reacted</em> to the change in this value. The application's regular flow breaks.</p>
+<p>So, in the light of this new information, how should one go about updating the value of an input field using just vanilla JS?</p>
+<p>One (and I'd argue the most ideal) way would be to trigger the <code>change</code> event manually after setting the <code>value</code> property:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> input <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>input<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">'John Doe'</span><span class="token punctuation">;</span><br>input<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Event</span><span class="token punctuation">(</span><span class="token string">'change'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> bubbles<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Now that we know exactly what JS should be executed every time we want to update the value of an input element, why not abstract it out to a function,</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">updateInput</span> <span class="token punctuation">(</span><span class="token parameter">input<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  input<span class="token punctuation">.</span>value <span class="token operator">=</span> value<span class="token punctuation">;</span><br>  input<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Event</span><span class="token punctuation">(</span><span class="token string">'change'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> bubbles<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>and then user that function every time we want to update an input field?</p>
+<pre class="language-js"><code class="language-js"><span class="token function">updateInput</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#name'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'John Doe'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Of course, this doesn't work with IE. But there are always <a href="https://stackoverflow.com/questions/26596123/internet-explorer-9-10-11-event-constructor-doesnt-work">workarounds</a> that can help you make this work cross-browser.</p>
+
+  </article>
+</div>
+
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=https://umanghome.github.io/blog/2019/input-value-peculiarity.html" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://umanghome.github.io/blog/2019/input-value-peculiarity.html" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=https://umanghome.github.io/blog/2019/input-value-peculiarity.html" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u=https://umanghome.github.io/blog/2019/input-value-peculiarity.html" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url=https://umanghome.github.io/blog/2019/input-value-peculiarity.html" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'umanggalaiyablog';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+        <footer>
+  &copy; 2020 Umang Galaiya. Powered by <a href="https://www.11ty.dev/">11ty (Eleventy)</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-58535571-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-58535571-2');
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Musings from my everyday life as a Software Engineer">
+  <meta name="keywords" content="programming, software, engineer, engineering, frontend, javascript, code, technology, tech, umang, galaiya, umanghome, blog">
+  <meta name="author" content="Blog | Umang Galaiya">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f5">
+
+  <!-- Twitter Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Blog | Umang Galaiya">
+  <meta name="twitter:description" content="Musings from my everyday life as a Software Engineer">
+  <meta name="twitter:image" content="https://umanghome.github.io/blog/img/umang.jpg">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="https://umanghome.github.io/blog/2020/svelte-event-handlers.html">
+  <meta property="og:title" content="Blog | Umang Galaiya">
+  <meta property="og:description" content="Musings from my everyday life as a Software Engineer">
+  <meta property="og:image" content="https://umanghome.github.io/blog/img/umang.jpg">
+  <title>Blog | Umang Galaiya</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="https://umanghome.github.io/blog/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://umanghome.github.io/blog/css/main.css">
+
+  <link rel="canonical" href="https://umanghome.github.io/blog/2020/svelte-event-handlers.html">
+  <link rel="alternate" type="application/rss+xml" title="Blog | Umang Galaiya" href="https://umanghome.github.io/blog/feed.xml" />
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="https://umanghome.github.io/blog/img/favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+         
+
+<div class="cover-card table-cell table-middle">
+  
+  <img src="https://umanghome.github.io/blog/img/umang.jpg" alt="" class="avatar">
+  
+  <a href="https://umanghome.github.io/blog/" class="author_name">Umang Galaiya</a>
+  <span class="author_job">Frontend Engineer at Razorpay</span>
+  <span class="author_bio mbm">HCI and Technology nerd</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="https://umanghome.github.io/blog/">home</a>
+      </li>
+      
+        
+          <li class="nav-item">
+            <span>/</span>
+            <a href="https://umanghome.github.io/blog/archive/">Archive</a>
+          </li>
+        
+      
+        
+          <li class="nav-item">
+            <span>/</span>
+            <a href="https://umanghome.github.io/blog/categories/">Categories</a>
+          </li>
+        
+      
+        
+      
+      <li class="nav-item">
+        <span>/</span>
+        <a href="https://umanggalaiya.in/">portfolio</a>
+      </li>
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+      <li>
+      <script>gen_mail_to_link('umang@umanggalaiya.in', 'Hello from website');</script>
+      </li>
+    
+    <li><a href="http://twitter.com/umanghome" class="social-link-item" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
+    <li><a href="http://facebook.com/umanghome" class="social-link-item" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
+    
+    <li><a href="http://linkedin.com/in/umanggalaiya" class="social-link-item" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a></li>
+    
+    <li><a href="http://instagram.com/umanghome" class="social-link-item" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
+    
+    <li><a href="http://github.com/umanghome" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+    <li><a href="http://stackoverflow.com/users/4176188/umang-galaiya" class="social-link-item" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i></a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        
+<a class="btn" href= "https://umanghome.github.io/blog/" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="Event Handlers and Svelte">Event Handlers and Svelte</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        25 APR 2020
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    1 min read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <p>Svelte makes writing event handlers fun. Let's see how.</p>
+
+    <p><a href="https://svelte.dev">Svelte</a> is a framework for building frontend apps. I'm a huge fan of Svelte, mostly because it lets me do a lot of things with relatively fewer and less convoluted code. One of things that enable simpler code is how it lets you write event handlers. Let's talk about it.</p>
+<p>This post has some <a href="#basics">basics</a> and some <a href="#cool-things">cool things that I found</a>. If you've already written your fair share of code, you might want to skip to the <a href="#cool-things">latter</a>.</p>
+<h1>Basics</h1>
+<p>Event listeners are just regular functions like the ones you would use with React or with Vanilla JS. They get an event as the argument and let you do whatever you would want to.</p>
+<p>A key different with React is that with Svelte, you don't pass the event listeners down from the parent to the child. Instead, you <em>dispatch</em> events from children to parents. You still can pass event listeners to children as props if that's what you want to do, but the recommended patterns is dispatching events from children. I like Svelte's pattern better since I don't have to worry about setting a <a href="https://en.wikipedia.org/wiki/NOP_(code)#JavaScript"><code>no-op</code></a> function as the default value of an <code>onEvent</code> prop.</p>
+<h2><code>on:eventname</code></h2>
+<p>You add event listeners on a component using the <code>on:eventname</code> directive.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name"><span class="token namespace">on:</span>click</span><span class="token attr-value"><span class="token punctuation">=</span>{handleClick}</span> <span class="token punctuation">/></span></span></code></pre>
+<p>You can use inline functions too.</p>
+<pre class="language-html"><code class="language-html">&lt;Button on:click={() => doSomething()} /></code></pre>
+<h2><code>on:eventname|modifier</code></h2>
+<p>There's also something called a &quot;modifier&quot; that you can use with Svelte. They are mostly things you would set as behaviour of your event listener, or operations you usually do on the <code>event</code> argument.</p>
+<p>Svelte supports the following modifiers:</p>
+<ul>
+<li><code>preventDefault</code> (no more <code>event.preventDefault()</code>)</li>
+<li><code>stopPropagation</code> (no more <code>event.stopPropagation()</code>)</li>
+<li><code>passive</code></li>
+<li><code>capture</code></li>
+<li><code>once</code></li>
+<li><code>self</code></li>
+</ul>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name"><span class="token namespace">on:</span>click|preventDefault</span><span class="token attr-value"><span class="token punctuation">=</span>{handleClick}</span> <span class="token punctuation">/></span></span></code></pre>
+<p>The preceding code would first call <code>event.preventDefault()</code> before invoking <code>handleClick(event)</code>. I really like this pattern, since it lets me define one function and use it regardless of whether it is being used as an event listener or being called independently. For example:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">function</span> <span class="token function">updateDetails</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    event <span class="token operator">&amp;&amp;</span> event<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    Notifier<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token string">'Updating details'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    Datastore<span class="token punctuation">.</span><span class="token function">getCurrentStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">updateDetails</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><br>  <span class="token keyword">function</span> <span class="token function">saveProfile</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token comment">// ...</span><br><br>    <span class="token function">updateDetails</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// ...</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name"><span class="token namespace">on:</span>click</span><span class="token attr-value"><span class="token punctuation">=</span>{updateDetails}</span><span class="token punctuation">></span></span>Update Details<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Button</span><span class="token punctuation">></span></span></code></pre>
+<p>In the preceding code, I'd have to explicitly check for the presence of <code>event</code> and then call <code>preventDefault</code> on it just to ensure that clicking the <code>Button</code> doesn't do something weird. With modifiers this would become</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">function</span> <span class="token function">updateDetails</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    Notifier<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token string">'Updating details'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    Datastore<span class="token punctuation">.</span><span class="token function">getCurrentStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">updateDetails</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><br>  <span class="token keyword">function</span> <span class="token function">saveProfile</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token comment">// ...</span><br><br>    <span class="token function">updateDetails</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// ...</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name"><span class="token namespace">on:</span>click|preventDefault</span><span class="token attr-value"><span class="token punctuation">=</span>{updateDetails}</span><span class="token punctuation">></span></span>Update Details<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Button</span><span class="token punctuation">></span></span></code></pre>
+<h2>dispatch</h2>
+<p>We have discussed how to handle events. Let's talk about <em>dispatching</em> events now.</p>
+<p>Native DOM elements emit their regular events. With components, you would have to crate an event dispatcher and use that to dispatch your events. For this, you use the dispatcher returned by <code>createEventDispatcher</code>.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> createEventDispatcher <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'svelte'</span><span class="token punctuation">;</span><br><br><span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token function">createEventDispatcher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token function">dispatch</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> eventData<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Here's how you use it:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">import</span> <span class="token punctuation">{</span> createEventDispatcher <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'svelte'</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token function">createEventDispatcher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">function</span> <span class="token function">updateDetails</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    Notifier<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token string">'Updating details'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    Datastore<br>      <span class="token punctuation">.</span><span class="token function">getCurrentStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>      <span class="token punctuation">.</span><span class="token function">updateDetails</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">details</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>        <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'updated'</span><span class="token punctuation">,</span> details<span class="token punctuation">)</span><span class="token punctuation">;</span><br>      <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><br><br>  <span class="token keyword">function</span> <span class="token function">saveProfile</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token comment">// ...</span><br><br>    <span class="token function">updateDetails</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// ...</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name"><span class="token namespace">on:</span>click|preventDefault</span><span class="token attr-value"><span class="token punctuation">=</span>{updateDetails}</span><span class="token punctuation">></span></span>Update Details<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Button</span><span class="token punctuation">></span></span></code></pre>
+<p>The parent component can then listen to the <code>updated</code> event:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><br>  function handleUpdate (event) {<br>    const details = event.detail;<br><br>    // ...<br>  }<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Child</span> <span class="token attr-name"><span class="token namespace">on:</span>updated</span><span class="token attr-value"><span class="token punctuation">=</span>{handleUpdated}</span><span class="token punctuation">></span></span></code></pre>
+<p>Notice how we're getting the <code>eventData</code> using <code>event.detail</code>? Svelte internally uses a <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent"><code>CustomEvent</code></a>. This makes the modifiers work even on custom, dispatched events!</p>
+<h2>Forwarding Events</h2>
+<p>Hey, but what if I'm nested three levels down and I want to notify the parent that some event occured, without actually handling it?</p>
+<p>Here's what I wrote when I didn't want to both reading the documentation:</p>
+<p><code>DetailsForm.svelte</code></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">import</span> <span class="token punctuation">{</span> createEventDispatcher <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'svelte'</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token function">createEventDispatcher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">function</span> <span class="token function">onSubmit</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'submit'</span><span class="token punctuation">,</span> event<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name"><span class="token namespace">on:</span>submit</span><span class="token attr-value"><span class="token punctuation">=</span>{onSubmit}</span><span class="token punctuation">></span></span><br>  // ...<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></code></pre>
+<p><code>Profile.svelte</code></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">import</span> DetailsForm <span class="token keyword">from</span> <span class="token string">'./DetailsForm.svelte'</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">function</span> <span class="token function">handleSubmit</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">const</span> actualEvent <span class="token operator">=</span> event<span class="token punctuation">.</span>detail<span class="token punctuation">;</span> <span class="token comment">// Remember how this became a CustomEvent?</span><br><br>    <span class="token keyword">const</span> target <span class="token operator">=</span> actualEvent<span class="token punctuation">.</span>target<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DetailsForm</span> <span class="token attr-name"><span class="token namespace">on:</span>submit</span><span class="token attr-value"><span class="token punctuation">=</span>{handleSubmit}</span><span class="token punctuation">></span></span><br>  // ...<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></code></pre>
+<p>This got ugly and complicated because now I have to get the original event using <code>event.detail</code>. And what if I want to send this event one level up? Do I create an event dispatcher again? Ugh.</p>
+<p>Well, not really. Here's how you actually do it.</p>
+<p><code>DetailsForm.svelte</code></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name"><span class="token namespace">on:</span>submit</span><span class="token punctuation">></span></span><br>  // ...<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></code></pre>
+<p><code>Profile.svelte</code></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">import</span> DetailsForm <span class="token keyword">from</span> <span class="token string">'./DetailsForm.svelte'</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">function</span> <span class="token function">handleSubmit</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">const</span> target <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DetailsForm</span> <span class="token attr-name"><span class="token namespace">on:</span>submit</span><span class="token attr-value"><span class="token punctuation">=</span>{handleSubmit}</span><span class="token punctuation">></span></span><br>  // ...<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></code></pre>
+<p>See how we <code>DetailsForm.svelte</code> suddenly became so clean? Turns out, if you don't give an event handler to <code>on:eventname</code>, it just sends it one level above. Without creating a CustomEvent. Neat. I don't have to deal with <code>event.detail</code> anymore.</p>
+<blockquote>
+<p>Read more about all of this at <a href="https://svelte.dev/docs#on_element_event">Svelte's documentation</a>.</p>
+</blockquote>
+<h1>Cool things</h1>
+<h2>Handle and Forward events</h2>
+<p>What if, within my <code>DetailsForm.svelte</code>, I wanted to handle the submit event as well as forward it to the parent? One solution would be:</p>
+<p><code>DetailsForm.svelte</code></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">import</span> <span class="token punctuation">{</span> createEventDispatcher <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'svelte'</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token function">createEventDispatcher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">function</span> <span class="token function">handleSubmit</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token comment">// Handle the event</span><br>  <span class="token punctuation">}</span><br><br>  <span class="token comment">// The actual event listener</span><br>  <span class="token keyword">function</span> <span class="token function">onSubmit</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token function">handleSubmit</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'submit'</span><span class="token punctuation">,</span> event<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name"><span class="token namespace">on:</span>submit</span><span class="token attr-value"><span class="token punctuation">=</span>{onSubmit}</span><span class="token punctuation">></span></span><br>  // ...<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></code></pre>
+<p>It's getting ugly again. Let's try using the forwarding directive <em>and</em> the event listener directive at the same time.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">function</span> <span class="token function">handleSubmit</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token comment">// Handle the event</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name"><span class="token namespace">on:</span>submit</span> <span class="token attr-name"><span class="token namespace">on:</span>submit</span><span class="token attr-value"><span class="token punctuation">=</span>{handleSubmit}</span><span class="token punctuation">></span></span><br>  // ...<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></code></pre>
+<p>This actually works. Having both <code>on:submit</code> and <code>on:submit={handleSubmit}</code> lets you handle the event inside the component as well as forward it - all without having to deal with <code>dispatch</code> and <code>CustomEvent</code>.</p>
+<h2>Multiple Events</h2>
+<p>We were able to attach two <code>on:submit</code> directives to our form and still managed to keep things worked. But both of them did different things. Can we have multiple event listeners at same time? We can!</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">function</span> <span class="token function">handleSubmit</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token comment">// Handle the event</span><br>  <span class="token punctuation">}</span><br><br>  <span class="token keyword">function</span> <span class="token function">showModal</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token comment">// Show some modal</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name"><span class="token namespace">on:</span>submit</span><span class="token attr-value"><span class="token punctuation">=</span>{handleSubmit}</span> <span class="token attr-name"><span class="token namespace">on:</span>submit</span><span class="token attr-value"><span class="token punctuation">=</span>{showModal}</span><span class="token punctuation">></span></span><br>  // ...<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></code></pre>
+<p>Both <code>handleSubmit</code> and <code>showModal</code> will now be invoked when the form dispatches a <code>submit</code> event. We could even take it up a notch and forward the event using the forwarding directive: <code>on:submit</code>. Try it out.</p>
+<p>Note: This works for both native DOM events as well as any custom events dispatched manually. It's all the same to Svelte.</p>
+
+  </article>
+</div>
+
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=https://umanghome.github.io/blog/2020/svelte-event-handlers.html" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://umanghome.github.io/blog/2020/svelte-event-handlers.html" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=https://umanghome.github.io/blog/2020/svelte-event-handlers.html" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u=https://umanghome.github.io/blog/2020/svelte-event-handlers.html" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url=https://umanghome.github.io/blog/2020/svelte-event-handlers.html" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'umanggalaiyablog';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+        <footer>
+  &copy; 2020 Umang Galaiya. Powered by <a href="https://www.11ty.dev/">11ty (Eleventy)</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-58535571-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-58535571-2');
+</script>
+
+
+</body>
+</html>
