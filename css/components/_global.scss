@@ -122,3 +122,8 @@ footer {
     list-style: none;
   }
 }
+
+p code {
+  padding: 0 4px;
+  border: 1px dotted $secondary;
+}
