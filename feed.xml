@@ -11,7 +11,13 @@
 		<sy:updateFrequency>1</sy:updateFrequency>
 		<link>https://umanggalaiya.in/blog</link>
 		<atom:link href="https://umanggalaiya.in/blog//feed.xml" rel="self" type="application/rss+xml" />
-		<lastBuildDate>Sat Apr 25 2020 00:40:00 GMT+0000 (Coordinated Universal Time)</lastBuildDate><item>
+		<lastBuildDate>Mon Aug 10 2020 15:00:00 GMT+0000 (Coordinated Universal Time)</lastBuildDate><item>
+				<title>Using GitHub Actions to build GitHub Pages</title>
+				<dc:creator>Umang Galaiya</dc:creator>
+        <description>About using GitHub Actions to generate your GitHub pages build</description>
+				<pubDate>Mon Aug 10 2020 15:00:00 GMT+0000 (Coordinated Universal Time)</pubDate>
+				<link>https://umanggalaiya.in/blog/2020/github-pages-action.html</link>
+				<guid isPermaLink="true">https://umanggalaiya.in/blog/2020/github-pages-action.html</guid><category>software</category></item><item>
 				<title>Event Handlers and Svelte</title>
 				<dc:creator>Umang Galaiya</dc:creator>
         <description>Svelte makes writing event handlers fun. Let's see how.</description>

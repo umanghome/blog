@@ -613,6 +613,11 @@ footer .heart-icon {
   list-style: none;
 }
 
+p code {
+  padding: 0 4px;
+  border: 1px dotted #8d7edc;
+}
+
 /**
   * Helpers
   */
