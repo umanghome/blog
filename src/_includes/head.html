@@ -1,17 +1,18 @@
-{% if page.title %}
-  {% capture title %}{{ page.title }} | {{ site.title }}{% endcapture %}
+{% if title %}
+  {% capture title %}{{ title }} | {{ site.title }}{% endcapture %}
 {% else %}
   {% capture title %}{{ site.title }}{% endcapture %}
 {% endif %}
 
-{% if page.excerpt %}
-  {% capture description %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% endcapture %}
+
+{% if excerpt %}
+  {% capture description %}{{ excerpt | strip_html | strip_newlines | truncate: 160 }}{% endcapture %}
 {% else %}
   {% capture description %}{{ site.description }}{% endcapture %}
 {% endif %}
 
-{% if page.keywords %}
-  {% capture keywords %}{{ site.keywords | concat: page.keywords | join: ", " }}{% endcapture %}
+{% if keywords %}
+  {% capture keywords %}{{ site.keywords | concat: keywords | join: ", " }}{% endcapture %}
 {% else %}
   {% capture keywords %}{{ site.keywords | join: ", " }}{% endcapture %}
 {% endif %}
