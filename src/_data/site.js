@@ -27,7 +27,6 @@ module.exports = () => {
       job: 'Frontend Engineer at Razorpay',
       bio: 'HCI and Technology nerd',
       email: 'umang@umanggalaiya.in',
-      'disqus-shortname': 'umanggalaiyablog',
       twitter: 'umanghome',
       facebook: 'umanghome',
       google: {

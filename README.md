@@ -15,5 +15,5 @@ Jekyll version is stored in the `jekyll` branch.
 TODOs:
 
 - [x] Migrate to 11ty
+- [x] Remove disqus
 - [ ] Redesign
-- [ ] Remove disqus?
