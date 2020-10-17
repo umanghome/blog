@@ -1,0 +1,34 @@
+<script>
+  window.addEventListener('load', function prepareWebShare () {
+    try {
+      if (!navigator.share) {
+        return;
+      }
+
+      function showElement(element) {
+        element.classList.remove('hidden');
+      }
+
+      function sharePage() {
+        const text = document.querySelector('title').innerText;
+        const share = {
+          text,
+          url: window.location.href,
+        };
+
+        navigator.share(share);
+      }
+
+      function addShareListener(element) {
+        element.addEventListener('click', sharePage);
+      }
+
+      Array.from(document.querySelectorAll('.webshare-only')).forEach(showElement);
+      Array.from(document.querySelectorAll('.webshare-trigger')).forEach(addShareListener);
+
+    } catch (err) {
+      console.error(err);
+      // Does not support any of the code written above
+    }
+  });
+</script>
