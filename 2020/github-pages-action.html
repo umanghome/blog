@@ -193,9 +193,46 @@
     <li>
       <a href="https://www.reddit.com/submit?url=https://umanggalaiya.in/blog/2020/github-pages-action.html" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
     </li>
+    <li class="hidden webshare-only">
+      <button class="btn webshare-trigger">+ More</button>
+    </li>
   </ul>
 </div><!-- end share-buttons -->
 
+<script>
+  window.addEventListener('load', function prepareWebShare () {
+    try {
+      if (!navigator.share) {
+        return;
+      }
+
+      function showElement(element) {
+        element.classList.remove('hidden');
+      }
+
+      function sharePage() {
+        const text = document.querySelector('title').innerText;
+        const share = {
+          text,
+          url: window.location.href,
+        };
+
+        navigator.share(share);
+      }
+
+      function addShareListener(element) {
+        element.addEventListener('click', sharePage);
+      }
+
+      Array.from(document.querySelectorAll('.webshare-only')).forEach(showElement);
+      Array.from(document.querySelectorAll('.webshare-trigger')).forEach(addShareListener);
+
+    } catch (err) {
+      console.error(err);
+      // Does not support any of the code written above
+    }
+  });
+</script>
         <footer>
   &copy; 2020 Umang Galaiya. Powered by <a href="https://www.11ty.dev/">11ty (Eleventy)</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
 </footer>

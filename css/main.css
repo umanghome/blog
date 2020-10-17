@@ -638,6 +638,10 @@ p code {
   }
 }
 
+.hidden {
+  display: none !important;
+}
+
 .radius-box {
   border-radius: 10px;
 }
