@@ -88,6 +88,8 @@ a.read-more {
 // Post content
 
 #post {
+  max-width: 80ch;
+
   padding-bottom: 50px;
   .post-header {
     margin: 0 auto 50px;
