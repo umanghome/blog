@@ -24,7 +24,7 @@ module.exports = () => {
     owner: {
       name: 'Umang Galaiya',
       avatar: 'umang.jpg',
-      job: 'Frontend Engineer at Razorpay',
+      job: 'Frontend Engineer at Apollo.io',
       bio: 'HCI and Technology nerd',
       email: 'umang@umanggalaiya.in',
       twitter: 'umanghome',
