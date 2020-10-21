@@ -11,7 +11,13 @@
 		<sy:updateFrequency>1</sy:updateFrequency>
 		<link>https://umanggalaiya.in/blog</link>
 		<atom:link href="https://umanggalaiya.in/blog//feed.xml" rel="self" type="application/rss+xml" />
-		<lastBuildDate>Mon Aug 10 2020 15:00:00 GMT+0000 (Coordinated Universal Time)</lastBuildDate><item>
+		<lastBuildDate>Wed Oct 21 2020 18:00:00 GMT+0000 (Coordinated Universal Time)</lastBuildDate><item>
+				<title>Being passionate is overrated</title>
+				<dc:creator>Umang Galaiya</dc:creator>
+        <description>Being passionate is overrated and you will probably end up being hurt by it.</description>
+				<pubDate>Wed Oct 21 2020 18:00:00 GMT+0000 (Coordinated Universal Time)</pubDate>
+				<link>https://umanggalaiya.in/blog/2020/passion-is-overrated.html</link>
+				<guid isPermaLink="true">https://umanggalaiya.in/blog/2020/passion-is-overrated.html</guid><category>random</category></item><item>
 				<title>Using GitHub Actions to build GitHub Pages</title>
 				<dc:creator>Umang Galaiya</dc:creator>
         <description>Use GitHub Actions to generate builds for GitHub Pages</description>
