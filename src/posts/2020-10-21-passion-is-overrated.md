@@ -28,5 +28,9 @@ I don't know yet how to solve the problem of getting hurt for being unable to do
 
 While you're still here, look at these two reddit posts that I came across this week that prompted me to not procrastinate writing this anymore.
 
-1. [YSK: A company has NO memory when it comes to you working extra hours, weekends or going the "extra mile"](https://www.removeddit.com/r/YouShouldKnow/comments/jem7l0/ysk_a_company_has_no_memory_when_it_comes_to_you/)
-2. [LPT: If the company you work for ever has a team meeting and one of the leaders/execs says “If you’re just here for a paycheck, leave”. Leave.](https://www.reddit.com/r/LifeProTips/comments/jef0h2/lpt_if_the_company_you_work_for_ever_has_a_team/)
+1. [YSK: A company has NO memory when it comes to you working extra hours, weekends or going the "extra mile"](https://www.reddit.com/r/YouShouldKnow/comments/jem7l0/ysk_a_company_has_no_memory_when_it_comes_to_you/)  
+Why YSK: Working long weekends, late evenings and doing jobs above and beyond your remit could help your promotion prospects and make you stand out as a solid, reliable team player BUT when the cost cutting starts, a family tragedy occurs, or a new management figure is introduced it can all count for nothing, so its best to make sure
+    - People especially HR and your immediate superiors are aware you are "doing more"
+    - You get fairly compensated for the extra time, in wages or in extra time off
+2. [LPT: If the company you work for ever has a team meeting and one of the leaders/execs says “If you’re just here for a paycheck, leave”. Leave.](https://www.reddit.com/r/LifeProTips/comments/jef0h2/lpt_if_the_company_you_work_for_ever_has_a_team/)  
+(too long of a description to fit in this post)
