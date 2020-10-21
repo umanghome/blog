@@ -10,7 +10,7 @@ excerpt: Being passionate is overrated and you will probably end up being hurt b
 
 There are multiple reasons why I say passion is overrated. One of them being its inability to pay bills unless you're one of the lucky ones whose passion can be monetized easily and enough to get you a lifestyle that you aim for.
 
-But that's not what I want to talk abou this time. At this moment, I believe that whatever follows in this post applies to the people who have 
+But that's not what I want to talk about this time. At this moment, I believe that whatever follows in this post applies to the people who have 
 - managed to turn what they are passionate about into a job, or
 - become passionate enough about the things they do in their jobs
 
