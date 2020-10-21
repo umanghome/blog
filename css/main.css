@@ -593,7 +593,6 @@ a {
 }
 
 footer {
-  text-align: center;
   padding: 3em 0;
 }
 footer .heart-icon {
@@ -1861,6 +1860,7 @@ a.read-more {
 }
 
 #post {
+  max-width: 80ch;
   padding-bottom: 50px;
 }
 #post .post-header {
