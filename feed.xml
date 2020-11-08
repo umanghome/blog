@@ -11,7 +11,13 @@
 		<sy:updateFrequency>1</sy:updateFrequency>
 		<link>https://umanggalaiya.in/blog</link>
 		<atom:link href="https://umanggalaiya.in/blog//feed.xml" rel="self" type="application/rss+xml" />
-		<lastBuildDate>Wed Oct 21 2020 18:00:00 GMT+0000 (Coordinated Universal Time)</lastBuildDate><item>
+		<lastBuildDate>Sun Nov 08 2020 15:20:00 GMT+0000 (Coordinated Universal Time)</lastBuildDate><item>
+				<title>MX Master master race</title>
+				<dc:creator>Umang Galaiya</dc:creator>
+        <description>Every couple of weeks I find myself recommending the MX Master to somebody. This is why.</description>
+				<pubDate>Sun Nov 08 2020 15:20:00 GMT+0000 (Coordinated Universal Time)</pubDate>
+				<link>https://umanggalaiya.in/blog/2020/mx-master.html</link>
+				<guid isPermaLink="true">https://umanggalaiya.in/blog/2020/mx-master.html</guid><category>gadgets</category></item><item>
 				<title>Being passionate is overrated</title>
 				<dc:creator>Umang Galaiya</dc:creator>
         <description>Being passionate is overrated and you will probably end up being hurt by it.</description>
@@ -65,11 +71,5 @@
         <description>Hi, there. I’ve been meaning to write a post about how we built LeapDrop at the [InOut](https://hackinout.co/) 3.0 Hackathon. We eventually won Best Hardware Hack sponsored by [Hackster.io](https://www.hackster.io/).</description>
 				<pubDate>Thu Dec 07 2017 12:22:19 GMT+0000 (Coordinated Universal Time)</pubDate>
 				<link>https://umanggalaiya.in/blog/2017/building-leapdrop.html</link>
-				<guid isPermaLink="true">https://umanggalaiya.in/blog/2017/building-leapdrop.html</guid><category>technology</category><category>hackathons</category></item><item>
-				<title>Hello, world!</title>
-				<dc:creator>Umang Galaiya</dc:creator>
-        <description>Hello, world! 👋🏼</description>
-				<pubDate>Thu Dec 07 2017 11:22:19 GMT+0000 (Coordinated Universal Time)</pubDate>
-				<link>https://umanggalaiya.in/blog/2017/hello-world.html</link>
-				<guid isPermaLink="true">https://umanggalaiya.in/blog/2017/hello-world.html</guid><category>random</category></item></channel>
+				<guid isPermaLink="true">https://umanggalaiya.in/blog/2017/building-leapdrop.html</guid><category>technology</category><category>hackathons</category></item></channel>
 </rss>
