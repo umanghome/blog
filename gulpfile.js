@@ -1,9 +1,6 @@
 const { parallel, watch, dest, src } = require('gulp');
 const imagemin = require('gulp-imagemin');
-const sassProcessor = require('gulp-sass');
-
-// We want to be using canonical Sass, rather than node-sass
-sassProcessor.compiler = require('sass');
+const sassProcessor = require('gulp-sass')(require('sass'));
 
 // Flags whether we compress the output etc
 const isProduction = process.env.NODE_ENV === 'production';
@@ -15,7 +12,6 @@ const sass = () => {
     .pipe(sassProcessor().on('error', sassProcessor.logError))
     .pipe(dest('./blog/css', { sourceMaps: !isProduction }));
 };
-
 
 // Grabs all images, runs them through imagemin
 // and plops them in the dist folder
