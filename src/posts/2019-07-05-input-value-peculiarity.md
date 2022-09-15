@@ -31,10 +31,11 @@ It's because setting the `value` property of the input element doesn't trigger a
 
 So, in the light of this new information, how should one go about updating the value of an input field using just vanilla JS?
 
-One (and I'd argue the most ideal) way would be to trigger the `change` event manually after setting the `value` property:
+One (and I'd argue the most ideal) way would be to trigger the `input` and `change` event manually after setting the `value` property:
 ```js
 const input = document.querySelector('#name');
 input.value = 'John Doe';
+input.dispatchEvent(new Event('input', { bubbles: true }));
 input.dispatchEvent(new Event('change', { bubbles: true }));
 ```
 
@@ -42,6 +43,7 @@ Now that we know exactly what JS should be executed every time we want to update
 ```js
 function updateInput (input, value) {
   input.value = value;
+  input.dispatchEvent(new Event('input', { bubbles: true }));
   input.dispatchEvent(new Event('change', { bubbles: true }));
 }
 ```
