@@ -11,7 +11,13 @@
 		<sy:updateFrequency>1</sy:updateFrequency>
 		<link>https://umanggalaiya.in/blog</link>
 		<atom:link href="https://umanggalaiya.in/blog//feed.xml" rel="self" type="application/rss+xml" />
-		<lastBuildDate>Sun Nov 08 2020 15:20:00 GMT+0000 (Coordinated Universal Time)</lastBuildDate><item>
+		<lastBuildDate>Tue Apr 11 2023 12:00:00 GMT+0000 (Coordinated Universal Time)</lastBuildDate><item>
+				<title>For form's sake</title>
+				<dc:creator>Umang Galaiya</dc:creator>
+        <description>Using form elements in web apps for input fields provides a better UX and DX. Let me convince you.</description>
+				<pubDate>Tue Apr 11 2023 12:00:00 GMT+0000 (Coordinated Universal Time)</pubDate>
+				<link>https://umanggalaiya.in/blog/2023/forms.html</link>
+				<guid isPermaLink="true">https://umanggalaiya.in/blog/2023/forms.html</guid><category>software</category><category>javascript</category><category>web</category></item><item>
 				<title>MX Master master race</title>
 				<dc:creator>Umang Galaiya</dc:creator>
         <description>Every couple of weeks I find myself recommending the MX Master to somebody. This is why.</description>
@@ -65,11 +71,5 @@
         <description>In the final quarter of 2017, I set out to validate a personal idea I had been sitting on for a while - a service that reminds me to reconnect with the people I know but don't meet on a regular basis.</description>
 				<pubDate>Sat Feb 24 2018 12:00:00 GMT+0000 (Coordinated Universal Time)</pubDate>
 				<link>https://umanggalaiya.in/blog/2018/reconnect.html</link>
-				<guid isPermaLink="true">https://umanggalaiya.in/blog/2018/reconnect.html</guid><category>technology</category><category>experiments</category><category>software</category><category>product</category></item><item>
-				<title>Building LeapDrop</title>
-				<dc:creator>Umang Galaiya</dc:creator>
-        <description>Hi, there. I’ve been meaning to write a post about how we built LeapDrop at the [InOut](https://hackinout.co/) 3.0 Hackathon. We eventually won Best Hardware Hack sponsored by [Hackster.io](https://www.hackster.io/).</description>
-				<pubDate>Thu Dec 07 2017 12:22:19 GMT+0000 (Coordinated Universal Time)</pubDate>
-				<link>https://umanggalaiya.in/blog/2017/building-leapdrop.html</link>
-				<guid isPermaLink="true">https://umanggalaiya.in/blog/2017/building-leapdrop.html</guid><category>technology</category><category>hackathons</category></item></channel>
+				<guid isPermaLink="true">https://umanggalaiya.in/blog/2018/reconnect.html</guid><category>technology</category><category>experiments</category><category>software</category><category>product</category></item></channel>
 </rss>
