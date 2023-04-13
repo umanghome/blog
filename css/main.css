@@ -214,7 +214,7 @@ mark {
  * Address inconsistent and variable font size in all browsers.
  */
 small {
-  font-size: 80%;
+  font-size: 0.8em;
 }
 
 /**
@@ -222,7 +222,7 @@ small {
  */
 sub,
 sup {
-  font-size: 75%;
+  font-size: 0.75em;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
@@ -944,19 +944,19 @@ p code {
 }
 
 .info-text-color {
-  color: #09ABF6;
+  color: #09abf6;
 }
 
 .info-bg-color {
-  background-color: #09ABF6;
+  background-color: #09abf6;
 }
 
 .warning-text-color {
-  color: #F5A623;
+  color: #f5a623;
 }
 
 .warning-bg-color {
-  background-color: #F5A623;
+  background-color: #f5a623;
 }
 
 /**
@@ -1283,7 +1283,7 @@ html {
   color: rgba(0, 0, 0, 0.87);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-size: 15px;
+  font-size: 1rem;
 }
 
 blockquote {
@@ -1303,16 +1303,36 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
   line-height: 1.7;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
   font-weight: inherit;
   color: rgba(0, 0, 0, 0.87);
 }
-h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hover, h4 a:focus, h5 a:hover, h5 a:focus, h6 a:hover, h6 a:focus {
+h1 a:hover, h1 a:focus,
+h2 a:hover,
+h2 a:focus,
+h3 a:hover,
+h3 a:focus,
+h4 a:hover,
+h4 a:focus,
+h5 a:hover,
+h5 a:focus,
+h6 a:hover,
+h6 a:focus {
   color: rgba(61, 61, 61, 0.87);
 }
 
@@ -1364,7 +1384,7 @@ strong {
 
 small,
 .small {
-  font-size: 80%;
+  font-size: 0.8em;
   font-weight: normal;
 }
 
@@ -1417,18 +1437,18 @@ p {
 }
 
 .btn-warning {
-  background-color: #F5A623;
+  background-color: #f5a623;
   color: #fff;
-  border-color: #F5A623;
+  border-color: #f5a623;
 }
 .btn-warning:visited {
   color: #fff;
-  border-color: #F5A623;
+  border-color: #f5a623;
 }
 .btn-warning:hover {
   background-color: #fff;
-  color: #F5A623;
-  border-color: #F5A623;
+  color: #f5a623;
+  border-color: #f5a623;
 }
 
 .btn-danger {
@@ -1447,18 +1467,18 @@ p {
 }
 
 .btn-info {
-  background-color: #09ABF6;
+  background-color: #09abf6;
   color: #fff;
-  border-color: #09ABF6;
+  border-color: #09abf6;
 }
 .btn-info:visited {
-  border-color: #09ABF6;
+  border-color: #09abf6;
   color: #fff;
 }
 .btn-info:hover {
   background-color: #fff;
-  color: #09ABF6;
-  border-color: #09ABF6;
+  color: #09abf6;
+  border-color: #09abf6;
 }
 
 /*
@@ -1473,7 +1493,7 @@ Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/b
 code[class*=language-],
 pre[class*=language-] {
   font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 1.375;
   direction: ltr;
   text-align: left;
@@ -1678,7 +1698,7 @@ pre > code.highlight {
 }
 .cover-card .author_name {
   display: block;
-  color: #F36170;
+  color: #f36170;
   font-size: 1.75em;
 }
 .cover-card .author_job {
@@ -1690,7 +1710,7 @@ pre > code.highlight {
   margin: -5px auto 10px;
 }
 .cover-card .author_bio {
-  font-size: 90%;
+  font-size: 0.9em;
   display: block;
 }
 @media only screen and (min-width: 992px) {
@@ -1737,7 +1757,7 @@ pre > code.highlight {
 .nav-list .nav-item a {
   margin-top: 1em;
   text-transform: lowercase;
-  font-size: 85%;
+  font-size: 0.85em;
   color: #8d7edc;
 }
 .nav-list .nav-item a:hover, .nav-list .nav-item a:focus {
@@ -1762,7 +1782,7 @@ ul.tag-cloud li a.post-tag {
   margin-bottom: 2em;
 }
 .tag-list .tag-group .tag-group-title {
-  color: #F5A623;
+  color: #f5a623;
   text-transform: capitalize;
 }
 .tag-list .tag-group .tag-item {
@@ -1780,7 +1800,7 @@ ul.tag-cloud li a.post-tag {
   margin-bottom: 2em;
 }
 .cat-list .cat-group .cat-group-title {
-  color: #F5A623;
+  color: #f5a623;
   text-transform: capitalize;
 }
 .cat-list .cat-group .cat-item {
@@ -1865,8 +1885,8 @@ ul.tag-cloud li a.post-tag {
   float: right;
   font-weight: bold;
   font-style: italic;
-  color: #09ABF6;
-  font-size: 13px;
+  color: #09abf6;
+  font-size: 0.8rem;
   padding-right: 20px;
 }
 
@@ -1875,9 +1895,9 @@ section.post {
 }
 
 .back-home a {
-  font-size: 13px;
+  font-size: 0.8rem;
   font-weight: bold;
-  color: #09ABF6;
+  color: #09abf6;
   border: 1px solid rgba(115, 115, 115, 0.87);
   border-radius: 0.4em;
   padding: 0.5em 1em;
@@ -1885,7 +1905,7 @@ section.post {
 
 .post-title-link {
   color: #42b983;
-  font-size: 14px;
+  font-size: 1rem;
   margin-left: 10px;
 }
 .post-title-link:hover, .post-title-link:focus {
@@ -1893,7 +1913,7 @@ section.post {
 }
 
 .post-meta {
-  font-size: 13px;
+  font-size: 0.8rem;
   font-weight: bold;
 }
 .post-meta .post-date {
@@ -1901,11 +1921,11 @@ section.post {
 }
 .post-meta .post-author {
   text-transform: uppercase;
-  color: #F5A623;
+  color: #f5a623;
 }
 .post-meta .post-cat {
   text-transform: uppercase;
-  color: #F5A623;
+  color: #f5a623;
 }
 .post-meta .read-time {
   color: #42b983;
@@ -1957,9 +1977,9 @@ a.read-more {
   margin: 0 auto;
   padding: 20px 30px;
   text-align: center;
-  color: #F5A623;
-  font-size: 16px;
-  line-height: 16px;
+  color: #f5a623;
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .post-nav-prev,
@@ -1977,8 +1997,8 @@ a.read-more {
   padding: 20px 30px;
 }
 .post-nav-btn .post-nav-text {
-  font-size: 16px;
-  line-height: 16px;
+  font-size: 1rem;
+  line-height: 1;
   font-weight: bold;
 }
 .post-nav-btn .table-cell {
