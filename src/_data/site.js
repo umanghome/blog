@@ -2,10 +2,12 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = () => {
   return {
-    title: 'Umang\'s Blog',
+    title: "Umang's Blog",
     email: 'umang@umanggalaiya.in',
     description: 'Musings from my everyday life as a Software Engineer',
-    url: isProduction ? 'https://umanggalaiya.in/blog' : 'http://localhost:8080/blog',
+    url: isProduction
+      ? 'https://umanggalaiya.in/blog'
+      : 'http://localhost:8080/blog',
     keywords: [
       'programming',
       'software',
@@ -24,7 +26,7 @@ module.exports = () => {
     owner: {
       name: 'Umang Galaiya',
       avatar: 'umang.jpg',
-      job: 'Frontend Engineer at Apollo.io',
+      job: 'Staff Engineer at Apollo.io',
       bio: 'HCI and Technology nerd',
       email: 'umang@umanggalaiya.in',
       twitter: 'umanghome',
@@ -56,4 +58,4 @@ module.exports = () => {
       telegram: null,
     },
   };
-}
+};
