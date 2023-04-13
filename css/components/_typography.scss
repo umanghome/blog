@@ -22,7 +22,7 @@ html {
 
 blockquote {
   display: block;
-	position: relative;
+  position: relative;
   padding-left: 20px;
   font-style: italic;
   border-left: 5px solid $secondary;
@@ -33,25 +33,35 @@ blockquote {
 //
 
 a {
-   text-decoration: none;
-   color: $primary;
-   &:hover,
-   &:focus {
-     color: lighten($primary, 14%);
-     text-decoration: none;
-   }
+  text-decoration: none;
+  color: $primary;
+  &:hover,
+  &:focus {
+    color: lighten($primary, 14%);
+    text-decoration: none;
+  }
 }
 
 //
 // Header Styles
 //
 
-h1, h2, h3, h4, h5, h6 {
-	font-weight: 600;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
   line-height: 1.7;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
   font-weight: inherit;
   color: $text-color;
   &:hover,
@@ -59,12 +69,31 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: lighten($text-color, 24%);
   }
 }
-h1 { font-size: $font-size-h1; margin: ($font-size-h1 / 2) 0 ($font-size-h1 / 2.5) 0;}
-h2 { font-size: $font-size-h2; margin: ($font-size-h2 / 2) 0 ($font-size-h2 / 2.5) 0;}
-h3 { font-size: $font-size-h3; margin: ($font-size-h3 / 2) 0 ($font-size-h3 / 2.5) 0;}
-h4 { font-size: $font-size-h4; margin: ($font-size-h4 / 2) 0 ($font-size-h4 / 2.5) 0;}
-h5 { font-size: $font-size-h5; margin: ($font-size-h5 / 2) 0 ($font-size-h5 / 2.5) 0;}
-h6 { font-size: $font-size-h6; margin: ($font-size-h6 / 2) 0 ($font-size-h6 / 2.5) 0; text-transform: uppercase;}
+h1 {
+  font-size: $font-size-h1;
+  margin: ($font-size-h1 / 2) 0 ($font-size-h1 / 2.5) 0;
+}
+h2 {
+  font-size: $font-size-h2;
+  margin: ($font-size-h2 / 2) 0 ($font-size-h2 / 2.5) 0;
+}
+h3 {
+  font-size: $font-size-h3;
+  margin: ($font-size-h3 / 2) 0 ($font-size-h3 / 2.5) 0;
+}
+h4 {
+  font-size: $font-size-h4;
+  margin: ($font-size-h4 / 2) 0 ($font-size-h4 / 2.5) 0;
+}
+h5 {
+  font-size: $font-size-h5;
+  margin: ($font-size-h5 / 2) 0 ($font-size-h5 / 2.5) 0;
+}
+h6 {
+  font-size: $font-size-h6;
+  margin: ($font-size-h6 / 2) 0 ($font-size-h6 / 2.5) 0;
+  text-transform: uppercase;
+}
 
 //
 // Horizontal rules
@@ -81,13 +110,17 @@ hr {
 // Text Styles
 //
 
-em { font-style: italic; }
+em {
+  font-style: italic;
+}
 
-strong { font-weight: 600; }
+strong {
+  font-weight: 600;
+}
 
 small,
 .small {
-  font-size: 80%;
+  font-size: 0.8em;
   font-weight: normal;
 }
 

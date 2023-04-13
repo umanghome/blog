@@ -28,7 +28,7 @@
   }
   .author_name {
     display: block;
-    color: #F36170;
+    color: #f36170;
     font-size: 1.75em;
   }
   .author_job {
@@ -40,7 +40,7 @@
     margin: -5px auto 10px;
   }
   .author_bio {
-    font-size: 90%;
+    font-size: 0.9em;
     display: block;
   }
   @include media-query($medium-screen) {
@@ -83,7 +83,7 @@
     & a {
       margin-top: 1em;
       text-transform: lowercase;
-      font-size: 85%;
+      font-size: 0.85em;
       color: $secondary;
       &:hover,
       &:focus {
