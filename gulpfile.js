@@ -38,7 +38,7 @@ const images = () => {
 // prevent the task being run when we run `gulp watch`, but it
 // will run when a file changes.
 const watcher = () => {
-  watch('./css/*.scss', { ignoreInitial: true }, sass);
+  watch('./css/**/*', { ignoreInitial: true }, sass);
   watch('./img/**/*', { ignoreInitial: true }, images);
 };
 
